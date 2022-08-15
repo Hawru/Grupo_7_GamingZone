@@ -17,5 +17,7 @@ todos estos títulos podrán ser adquiridos por el cliente final
 
 - **Carlos Mercado**: Soy un nicoleño con algo de pasión por la programación, tengo experiencia en el desarrollo Backend, base de datos y manejo básico de servidores.
 
+- **Santiago Alejandro Martinez**: Diseñador gráfico. Diseño y maqueto webs desde que se desarrollaban en Flash. Fotógrafo de celular. Del conurbano bonaerense.
+
 ## Nuestro Tablero de Trabajo
 - [Trello](https://trello.com/b/y4Kd8IRM/grupo-7)
