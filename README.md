@@ -19,5 +19,7 @@ todos estos títulos podrán ser adquiridos por el cliente final
 
 - **Santiago Alejandro Martinez**: Diseñador gráfico. Diseño y maqueto webs desde que se desarrollaban en Flash. Fotógrafo de celular. Del conurbano bonaerense.
 
+- **Julian David Valencia**: Estudiante y amante de la programacion, con un poco de experiencia en java y base de datos. Interesado en aprender más y más acerca del mundo de la programación.
+
 ## Nuestro Tablero de Trabajo
 - [Trello](https://trello.com/b/y4Kd8IRM/grupo-7)
