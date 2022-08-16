@@ -1,7 +1,8 @@
 # Grupo_7_GamingZone
 
-El sitio ofrecerá un amplio catalogo de videojuegos de muchas categorías diferentes, tales como shooters, RPG, supervivencia, entre otros, 
-todos estos títulos podrán ser adquiridos por el cliente final
+El sitio ofrecerá un amplio catalogo de videojuegos de muchas categorías diferentes, tales como shooters, RPG, supervivencia, entre otros, todos estos títulos podrán ser adquiridos por el cliente final.
+
+El publico al que se apunta es a adolescentes y jóvenes adultos, sin importar genero, que puedan tener o no interés por el mundo de los Videojuegos, de cualquier origen internacional y que cuente con el aval económico necesario.
 
 ## Referencias
 
