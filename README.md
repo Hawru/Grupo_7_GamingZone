@@ -21,5 +21,7 @@ todos estos títulos podrán ser adquiridos por el cliente final
 
 - **Julian David Valencia**: Estudiante y amante de la programacion, con un poco de experiencia en java y base de datos. Interesado en aprender más y más acerca del mundo de la programación.
 
+- **Giovani Aprigio**: Profesor de Artes, brasileiro, resido en la Patagonia argentina. mi gusta el basquete y de conocer cosas nuevas.
+
 ## Nuestro Tablero de Trabajo
 - [Trello](https://trello.com/b/y4Kd8IRM/grupo-7)
