@@ -26,3 +26,6 @@ El publico al que se apunta es a adolescentes y jóvenes adultos, sin importar g
 
 ## Nuestro Tablero de Trabajo
 - [Trello](https://trello.com/b/y4Kd8IRM/grupo-7)
+
+## Wireframes
+- [Wireframes en Figma](https://www.figma.com/file/eVtvGxLCRc9HBTWUZF8RQY/Proyecto-Gaming?node-id=0%3A1)
