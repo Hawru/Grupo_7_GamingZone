@@ -24,6 +24,8 @@ El publico al que se apunta es a adolescentes y jóvenes adultos, sin importar g
 
 - **Giovani Aprigio**: Profesor de Artes, brasileiro, resido en la Patagonia argentina. mi gusta el basquete y de conocer cosas nuevas.
 
+- **Pablo Gaston Flores**: Soy un profesor de educacion fisica, con ganas de cambios y aprender sobre programacion.
+
 ## Nuestro Tablero de Trabajo
 - [Trello](https://trello.com/b/y4Kd8IRM/grupo-7)
 
