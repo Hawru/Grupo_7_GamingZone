@@ -22,7 +22,7 @@ El publico al que se apunta es a adolescentes y jóvenes adultos, sin importar g
 
 - **Julian David Valencia**: Estudiante y amante de la programacion, con un poco de experiencia en java y base de datos. Interesado en aprender más y más acerca del mundo de la programación.
 
-- **Giovani Aprigio**: Profesor de Artes, brasileiro, resido en la Patagonia argentina. mi gusta el basquete y de conocer cosas nuevas.
+- **Giovani Aprigio**: Profesor de Artes, brasileiro, resido en la Patagonia argentina. me gusta el basquete y conocer cosas nuevas.
 
 - **Pablo Gaston Flores**: Soy un profesor de educacion fisica, con ganas de cambios y aprender sobre programación.
 
