@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
     <link href="../public/css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="../public/css/login.css">
   </head>
   <body>
     <header class="py-2">
@@ -37,7 +38,41 @@
         </div>     
       </div>
     </header>
-    <main>
+    <main id="bg-login">
+      <div class="container text-center adjust-container">
+        <div class="row justify-content-center align-items-center adjust-container py-5">
+          <form class="col-md-5 rounded " id="bg-inside-login">
+            <h2>Iniciar sesión</h2>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control login-input" placeholder="Nombre de usuario" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+              <input type="password" class="form-control login-input" placeholder="Contraseña" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="d-grid gap-2">
+              <button class="btn btn-primary" type="button">Iniciar sesión</button>
+            </div>
+            <p><a href="#">Recuperar Contraseña</a></p>
+            <h5>Iniciar sesion con</h5>
+            <div class="container text-center redes-sociales">
+              <div class="row justify-content-between">
+                <div class="col-2 adjust">
+                  <a href="" class="rounded redes-sociales-a"><i class="fa-brands fa-google"></i></a>
+                </div>
+                <div class="col-2 adjust">
+                  <a href="" class="rounded redes-sociales-a"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+                <div class="col-2 adjust">
+                  <a href="" class="rounded redes-sociales-a"><i class="fa-brands fa-square-twitter"></i></a>
+                </div>
+                <div class="col-2 adjust">
+                  <a href="" class="rounded redes-sociales-a"><i class="fa-brands fa-twitch"></i></a>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>    
+      </div>
     </main>
     <footer>
       <div class="container">

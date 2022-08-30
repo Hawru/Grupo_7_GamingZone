@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
     <link href="../public/css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="../public/css/register.css">
   </head>
   <body>
     <header class="py-2">
@@ -37,7 +38,46 @@
         </div>     
       </div>
     </header>
-    <main>
+    <main id="bg-register">
+      <div class="container text-center adjust-container">
+        <div class="row justify-content-center align-items-center adjust-container py-5">
+          <form class="col-md-5 rounded" id="bg-inside-register">
+            <h2>Registrate</h2>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control register-input" placeholder="Nombre de usuario" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control register-input" placeholder="Correo electrónico" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+              <input type="password" class="form-control register-input rounded" placeholder="Contraseña" aria-label="Username" aria-describedby="basic-addon1">
+              <div><span class="vacio">Espacio vacio</span></div>
+              <input type="password" class="form-control register-input lado-register rounded" placeholder=" Repetir Contraseña" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="d-grid gap-2">
+              <button class="btn btn-primary" type="button">Registrarme</button>
+            </div>
+            <p>o registrate con tu cuenta de</p>
+            <div class="container text-center redes-sociales">
+              <div class="row justify-content-between">
+                <div class="col-2 adjust">
+                  <a href="" class="rounded redes-sociales-a"><i class="fa-brands fa-google"></i></a>
+                </div>
+                <div class="col-2 adjust">
+                  <a href="" class="rounded redes-sociales-a"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+                <div class="col-2 adjust">
+                  <a href="" class="rounded redes-sociales-a"><i class="fa-brands fa-square-twitter"></i></a>
+                </div>
+                <div class="col-2 adjust">
+                  <a href="" class="rounded redes-sociales-a"><i class="fa-brands fa-twitch"></i></a>
+                </div>
+              </div>
+              <p>¿Ya tienes una cuenta? <a href="">Inicia sesión</a></p>
+            </div>
+          </form>
+        </div>    
+      </div>
     </main>
     <footer>
       <div class="container">
