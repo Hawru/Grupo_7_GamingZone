@@ -1,0 +1,110 @@
+/* GENERALES */
+
+html{
+	font-size: 14px;
+}
+
+body{
+	font-family: 'Rubik', sans-serif;
+	background-color:#121212;
+	color: #ffffff;
+}
+
+.bg-primary, .btn-primary{
+	background-color: #4C00CC !important;
+}
+
+
+/* HEADER */
+
+.logo{
+	max-width: 150px;
+}
+
+.main-menu a{
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 1rem;
+	margin-left: 1rem;
+}
+
+#searchbar{
+	max-width: 75%;
+}
+
+#searchbar .input-group-text, #searchbar input{
+	border: 0;
+	background-color: #363636;
+	color: #fff;
+}
+
+/* MAIN */
+
+#main-slider{
+	background-image:url('../images/spiderman.jpeg');
+	background-position: center center;
+	background-size: cover;
+	height: 75vh;
+}
+
+#ofertas article, #novedades article, #proximamente article, #tabs article, #noticias article{
+	margin-bottom: 25px;
+}
+
+/* FOOTER */
+
+footer{
+	background-color: #1E1E1E;
+}
+
+footer nav ul li a{
+	text-decoration: none;
+	color: #fff;
+}
+
+footer nav ul li a:hover{
+	color: #4C00CC;
+}
+
+ul#social-links li a{
+	display: block;
+	width: 30px;
+	height: 30px;
+	background-color: #4C00CC;
+	padding: 5px;
+	border-radius: 20px;
+	color: #fff;
+}
+
+#legales{
+	background-color:#121212;
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	#ofertas article, #novedades article, #proximamente article, #tabs article, #noticias article{
+		margin-bottom: 0px;
+	}
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+
+}
