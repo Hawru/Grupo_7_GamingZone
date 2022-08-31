@@ -2,7 +2,7 @@
     background-image: url(../images/original.jpeg);
     background-position: center center;
     background-size: cover;
-	height: auto;
+	height: 73vh;
 }
 
 #bg-inside-register{
@@ -10,7 +10,7 @@
 }
 
 .adjust-container{
-    height: 90vh;
+    height: 73vh;
 }
 
 .register-input{
