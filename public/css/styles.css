@@ -53,10 +53,58 @@ body{
 	background-position: center center;
 	background-size: cover;
 	height: 75vh;
+	min-height: 500px;
+	position:relative;
+	overflow:hidden;	
+}
+
+#main-slider:before {
+    content: "";
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	z-index:0;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(black));
+    background-image: linear-gradient(180deg, transparent, black);
+}
+
+#main-slider .row{
+	z-index:1;
+}
+
+#slider-indicators button.slide-indicator{
+	height:12px;
+	border-radius:10px;
+	border:none;
+	background-color:rgba(255, 255, 255, 0.2);
+	margin-right:10px;
+}
+
+#slider-indicators button.slide-indicator.selected{
+	background-color:rgba(255, 255, 255, 0.5);
+}
+
+#slider-indicators button:last-child{
+	margin-right:0px;
 }
 
 #ofertas article, #novedades article, #proximamente article, #tabs article, #noticias article{
 	margin-bottom: 25px;
+}
+
+/* BANNER NEWSLETTER */
+
+#newsletter input{
+	background-color:rgba(255,255,255,0.1);
+	border:none;
+	color:#fff;
+}
+
+#newsletter button{
+	width:100%;
 }
 
 /* FOOTER */
@@ -141,7 +189,9 @@ form hr{
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-
+	#main-slider{
+		height: auto;
+	}
 }
 
 /* X-Large devices (large desktops, 1200px and up) */
