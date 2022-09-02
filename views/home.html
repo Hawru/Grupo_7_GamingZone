@@ -17,10 +17,11 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col justify-content-start">
-              <div class="input-group mb-3" id="searchbar">
+              <div class="input-group mb-3 d-none d-lg-flex" id="searchbar">
                 <span class="input-group-text" id="search"><i class="fa-solid fa-magnifying-glass"></i></span>
-                <input type="text" class="form-control" placeholder="Buscar juegos..." aria-label="search" aria-describedby="basic-addon1">
-              </div>          
+                <input type="text" class="form-control" placeholder="Buscar juegos..." aria-label="search">
+              </div>
+              <i class="fa-solid fa-magnifying-glass d-lg-none fs-2"></i>          
           </div>
           <div class="col text-center"><img src="../public/images/logo.svg" class="logo"></div>
           <div class="col text-end">
@@ -208,7 +209,7 @@
     <footer>
       <div class="container">
         <div class="row text-center py-5 align-items-center">
-          <div class="col-md-4">
+          <div class="col-md-4 order-2 order-md-1">
             <nav id="nav">
               <ul class="list-unstyled">
                 <li><h5>SOPORTE</h5></li>
@@ -218,7 +219,7 @@
               </ul>
             </nav>
           </div>
-           <div class="col-md-4">
+           <div class="col-md-4 my-4 my-md-0 order-1 order-md-2">
               <img src="../public/images/logo.svg" class="logo">
               <ul id="social-links" class="d-flex justify-content-center list-unstyled mt-4">
                 <li class="me-2"><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
@@ -227,7 +228,7 @@
                 <li><a href="#"><i class="fa-brands fa-twitch"></i></a></li>
               </ul>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 order-3">
             <nav id="nav">
               <ul class="list-unstyled">
                 <li><h5>ACERCA</h5></li>
@@ -241,8 +242,8 @@
       </div>
       <section id="legales" class="py-3">
         <div class="container">
-          <div class="row">
-            <small>© Gaming Zona 2022 - Todos los derechos reservados.</small>
+          <div class="row text-center">
+            <small>© Gaming Zone 2022 - Todos los derechos reservados.</small>
           </div>
         </div>
       </section>
