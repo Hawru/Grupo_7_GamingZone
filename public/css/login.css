@@ -2,16 +2,10 @@
     background-image: url(../images/original.jpeg);
     background-position: center center;
     background-size: cover;
-	height: 73vh;
 }
 
 .adjust-container{
-    height: 73vh;
-}
-
-
-#bg-inside-login{
-    background-color: #1E1E1E;
+    height: 75vh;
 }
 
 .login-input{
@@ -20,17 +14,6 @@
     border: #1E1E1E 1px solid;
 }
 
-form h2{
-    margin: 20px 0;
-}
-
-.redes-sociales-a{
-    background-color: #4C00CC;
-    display: block;
-    width: 100%;
-    height: 50px;
- }
-
 .redes-sociales i{
     background-color: #4C00CC;
     color: white;
@@ -38,18 +21,6 @@ form h2{
     padding: 12.5px 0;
 }
 
-.adjust{
-    width: 25%;
-}
-
-.redes-sociales{
-    margin-bottom: 20px;
-}
-
-.redes-sociales p a{
-    text-decoration: none;
-    color: white;
-}
 
 form p{
     margin: 5px 0px 5px 0px;
@@ -60,12 +31,6 @@ form p a{
     color: #D9D9D9;
 }
 
-form button{
-    background-color: #4C00CC;
-    border: #4C00CC solid 2px;
-}
-
-form h5{
+form hr{
     border-top: #363636 solid 2px;
-    padding-top: 5px;
 }

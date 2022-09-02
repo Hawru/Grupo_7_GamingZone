@@ -14,6 +14,13 @@ body{
 	background-color: #4C00CC !important;
 }
 
+.btn-primary{
+	border-color: #4C00CC !important;
+}
+
+.bg-dark{
+	background-color: #1E1E1E !important;
+}
 
 /* HEADER */
 
@@ -79,6 +86,44 @@ ul#social-links li a{
 
 #legales{
 	background-color:#121212;
+}
+
+/* REGISTER & LOGIN */
+
+#bg-login, #bg-register{
+    background-image: url(../images/original.jpeg);
+    background-position: center center;
+    background-size: cover;
+}
+
+.adjust-container{
+    height: 75vh;
+}
+
+#login-form input, #register-form input{
+    background-color: #363636;
+    color: white;
+    border: #1E1E1E 1px solid;
+}
+
+.redes-sociales i{
+    background-color: #4C00CC;
+    color: white;
+    font-size: 25px;
+    padding: 12.5px 0;
+}
+
+form p{
+    margin: 5px 0px 5px 0px;
+}
+
+form p a{
+    text-decoration: none;
+    color: #D9D9D9;
+}
+
+form hr{
+    border-top: #363636 solid 2px;
 }
 
 
