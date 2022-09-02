@@ -174,6 +174,15 @@ form hr{
     border-top: #363636 solid 2px;
 }
 
+/* CARRITO */
+
+.bg-semi-dark {
+    background-color: #363636 !important;
+}
+
+.bg-primary-dark {
+    background-color: #1E1E1E !important;
+}
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
