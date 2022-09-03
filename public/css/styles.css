@@ -177,7 +177,7 @@ form p a{
     color: #D9D9D9;
 }
 
-form hr{
+form hr, #cart-resume hr{
     border-top: #363636 solid 2px;
 }
 
@@ -189,6 +189,20 @@ form hr{
 
 .bg-primary-dark {
     background-color: #1E1E1E !important;
+}
+
+#cart-resume p{
+	font-size:1.2rem;
+	margin-bottom:0;
+}
+
+#cart-resume .cart-total p{
+	font-size:1.4rem;
+	font-weight:bold;
+}
+
+#cart-resume hr{
+	font-size:1.2rem;
 }
 
 /* Small devices (landscape phones, 576px and up) */
