@@ -8,6 +8,8 @@ body{
 	font-family: 'Rubik', sans-serif;
 	background-color:#121212;
 	color: #ffffff;
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .bg-primary, .btn-primary{
