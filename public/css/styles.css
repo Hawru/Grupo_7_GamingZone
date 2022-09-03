@@ -205,6 +205,14 @@ form hr, #cart-resume hr{
 	font-size:1.2rem;
 }
 
+.cart-item-details img{
+	width:150px;
+}
+
+.cart-item small{
+	font-size:1rem;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
 
@@ -214,6 +222,10 @@ form hr, #cart-resume hr{
 @media (min-width: 768px) {
 	#ofertas article, #novedades article, #proximamente article, #tabs article, #noticias article{
 		margin-bottom: 0px;
+	}
+
+	.cart-item-details img{
+		width:200px;
 	}
 }
 
