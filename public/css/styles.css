@@ -181,7 +181,7 @@ form hr, #cart-resume hr{
     border-top: #363636 solid 2px;
 }
 
-/* CARRITO */
+/* CART */
 
 .bg-semi-dark {
     background-color: #363636 !important;
@@ -211,6 +211,29 @@ form hr, #cart-resume hr{
 
 .cart-item small{
 	font-size:1rem;
+}
+
+/* PRODUCT */
+
+.play-button{
+	top:50%;
+	right:50%;
+	background-color:#4C00CC;
+	border-radius:50px;
+	width:60px;
+	height:60px;
+}
+
+.chart-puntuacion{
+	border:solid 2px #4C00CC;
+	width:75px;
+	height:75px;
+	border-radius:90px;
+}
+
+.item-requirement{
+	border-bottom:1px solid #1E1E1E;
+	margin-bottom:15px;
 }
 
 /* Small devices (landscape phones, 576px and up) */
