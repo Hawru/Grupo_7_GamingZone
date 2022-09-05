@@ -1,0 +1,24 @@
+{
+  "name": "grupo_7_gamingzone",
+  "version": "1.0.0",
+  "description": "El sitio ofrecerá un amplio catalogo de videojuegos de muchas categorías diferentes, tales como shooters, RPG, supervivencia, entre otros, todos estos títulos podrán ser adquiridos por el cliente final.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hawru/Grupo_7_GamingZone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hawru/Grupo_7_GamingZone/issues"
+  },
+  "homepage": "https://github.com/Hawru/Grupo_7_GamingZone#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
