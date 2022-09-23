@@ -4,5 +4,6 @@ const mainRoutes = express.Router();
 
 //routes
 mainRoutes.get('/', indexController.home);
+mainRoutes.get('/cart', indexController.cart);
 
 module.exports = mainRoutes;
