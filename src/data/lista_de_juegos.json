@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "title": "ds",
+    "description": "ds",
+    "price": 0,
+    "price_d": 0,
+    "discount": 0,
+    "version": [
+      1,
+      2
+    ],
+    "primary_image": 1,
+    "images": [
+      {
+        "id": 1,
+        "src": ""
+      }
+    ],
+    "requirements": [
+      {
+        "requirement_id": 1,
+        "value": "Nvidia 1050"
+      },
+      {
+        "requirement_id": 2,
+        "value": "Intel Core I5"
+      }
+    ],
+    "score": [
+      {
+        "score_id": 1,
+        "value": 9
+      },
+      {
+        "score_id": 2,
+        "value": 8.5
+      }
+    ],
+    "platforms": [
+      1,
+      2,
+      3
+    ]
+  }
+]

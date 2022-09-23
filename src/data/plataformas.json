@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "xbox",
+    "title": "XBOX",
+    "icon": ""
+  },
+  {
+    "id": 2,
+    "name": "playstation",
+    "title": "Play Station",
+    "icon": ""
+  },
+  {
+    "id": 3,
+    "name": "pc",
+    "title": "PC",
+    "icon": ""
+  }
+]

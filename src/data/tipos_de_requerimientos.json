@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "name": "video",
+    "title": "Placa de video"
+  },
+  {
+    "id": 2,
+    "name": "cpu",
+    "title": "Procesador"
+  }
+]
