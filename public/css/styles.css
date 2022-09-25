@@ -138,15 +138,18 @@ ul#social-links li a{
 	background-color:#121212;
 }
 
-/* REGISTER & LOGIN */
+/* REGISTER & LOGIN & CREATE*/
 
-#bg-login, #bg-register{
+#bg-login, #bg-register, #bg-create-product{
     background-position: center center;
     background-size: cover;
 	height: 75vh;
 	min-height: 550px;
 }
 
+#bg-create-product{
+	background-image: url(../images/egs-en-genshin-impact-2-8-breaker-1248x702-9bc4c4d899b7.jpeg);
+}
 #bg-login{
     background-image: url(../images/original.jpeg);
 }
@@ -154,11 +157,18 @@ ul#social-links li a{
 #bg-register{
     background-image: url(../images/register-bkg.webp);
 }
+#update-form{
+	background-image: url(../images/fall-guys.jpeg);
+}
 
-#login-form input, #register-form input{
+#login-form input, #register-form input, #create-form input, #create-form textarea, #update-form input, #update-form textarea{
     background-color: #363636;
     color: white;
     border: #1E1E1E 1px solid;
+}
+
+#create-form textarea, #update-form textarea{
+	height: 100px;
 }
 
 .redes-sociales i{
