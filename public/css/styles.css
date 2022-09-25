@@ -140,7 +140,7 @@ ul#social-links li a{
 
 /* REGISTER & LOGIN & CREATE*/
 
-#bg-login, #bg-register, #bg-create-product{
+#bg-login, #bg-register, #bg-create-product, #bg-update-product{
     background-position: center center;
     background-size: cover;
 	height: 75vh;
@@ -157,7 +157,7 @@ ul#social-links li a{
 #bg-register{
     background-image: url(../images/register-bkg.webp);
 }
-#update-form{
+#bg-update-product{
 	background-image: url(../images/fall-guys.jpeg);
 }
 

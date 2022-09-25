@@ -1,10 +1,26 @@
 <!doctype html>
 <html lang="en">
-    <%- include('./partials/head') %>
+    <%- include('../partials/head') %>
     <body>  
-      <%- include('./partials/header') %>
-      
-      <%- include('./partials/footer') %>
-      <%- include('./partials/scripts') %>
+      <%- include('../partials/header') %>
+      <main>
+        <section class="container">
+          <div class="row">
+            <div class="col-12 text-center py-5">
+              <h4 class="mb-3">Todos nuestros juegos</h4>
+            </div>
+            <article class="col-md-4">
+              <div class="image-container position-relative mb-3">
+                <img src="/images/oferta-01.webp" class="rounded img-fluid" alt="...">
+                <span class="position-absolute bottom-0 start-0 ms-3 mb-3 badge bg-primary fs-5">-50%</span>
+              </div>
+              <h4>Doom 2045</h4>
+              <p><s class="text-muted">49,99USD</s> 24,99USD</p>
+            </article>
+         </div>
+        </section>
+      </main>
+      <%- include('../partials/footer') %>
+      <%- include('../partials/scripts') %>
     </body>
   </html>
