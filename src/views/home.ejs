@@ -4,32 +4,47 @@
   <body>
 
     <%- include('./partials/header') %>
-    
+
     <main>
       <div class="container">
+        <%
+        if (topSales.length) {
+        %>
         <section id="main-slider" class="rounded my-3 d-flex align-items-end align-items-md-center px-4 px-md-5 py-5">
             <div class="row justify-content-between align-items-center">
               <div class="col-lg-4">
+                <%
+                if (topSales[0].is_new) {
+                %>
                 <h5><span class="badge bg-dark">Novedad</span></h5>
-                <h1>Marvel's Spider-Man Remasterizado</h1>
-                <p>El mundo de Peter Parker choca con el de Spider-Man en una historia original repleta de acción.</p>
+                <%
+                }
+                %>
+                <h1><%=topSales[0].title%></h1>
+                <p><%=topSales[0].description%></p>
                 <div class="d-flex align-items-center">
-                  <span class="fs-3 me-3">50USD</span><a href="products" class="btn btn-lg btn-primary border-0" role="button"><i class="fa-solid fa-cart-shopping"></i> COMPRAR</a>
+                  <span class="fs-3 me-3"><%=topSales[0].discount ? topSales[0].price_d : topSales[0].price%>USD</span>
+                  <a href="/products/<%=topSales[0].id%>" class="btn btn-lg btn-primary border-0" role="button"><i class="fa-solid fa-cart-shopping"></i> COMPRAR</a>
                 </div>
               </div>
               <div class="col-lg-3 d-flex flex-row flex-lg-column d-none d-lg-flex">
+                <%
+                for(let i = 1; i < topSales.slice(0, 4).length; i++) { 
+                %>
                 <article class="mb-3 shadow">
-                  <img src="/images/oferta-01.webp" class="rounded img-fluid" alt="...">
+                    <a href="/products/<%=topSales[i].id%>">
+                        <img src="/images/<%=topSales[i].primary_image_src%>" class="rounded img-fluid" alt="...">
+                    </a>
                 </article>
-                <article class="mb-3 shadow">
-                  <img src="/images/multiversus.jpeg" class="rounded img-fluid" alt="...">
-                </article>
-                <article class="shadow">
-                  <img src="/images/oferta-03.jpeg" class="rounded img-fluid" alt="...">
-                </article>
+                <%
+                }
+                %>
               </div>
             </div>
         </section>
+        <%
+        }
+        %>
         <div id="slider-indicators" class="d-flex justify-content-center d-md-none mb-4">
           <button type="button" class="slide-indicator selected"></button>
           <button type="button" class="slide-indicator"></button>
@@ -41,30 +56,32 @@
               <div class="col-12">
                 <h4 class="mb-3">Ofertas imperdibles</h4>
               </div>
-              <article class="col-md-4">
-                <div class="image-container position-relative mb-3">
-                  <img src="/images/oferta-01.webp" class="rounded img-fluid" alt="...">
-                  <span class="position-absolute bottom-0 start-0 ms-3 mb-3 badge bg-primary fs-5">-50%</span>
-                </div>
-                <h4>Doom 2045</h4>
-                <p><s class="text-muted">49,99USD</s> 24,99USD</p>
-              </article>
-              <article class="col-md-4">
-                <div class="image-container position-relative mb-3">
-                  <img src="/images/oferta-02.jpeg" class="rounded img-fluid" alt="...">
-                  <span class="position-absolute bottom-0 start-0 ms-3 mb-3 badge bg-primary fs-5">-50%</span>
-                </div>
-                <h4>Madden NFL 2023</h4>
-                <p><s class="text-muted">49,99USD</s> 24,99USD</p>   
-              </article>
-              <article class="col-md-4">
-                <div class="image-container position-relative mb-3">
-                  <img src="/images/oferta-03.jpeg" class="rounded img-fluid" alt="...">
-                  <span class="position-absolute bottom-0 start-0 ms-3 mb-3 badge bg-primary fs-5">-50%</span>
-                </div>
-                <h4>Far Cry 6</h4>
-                <p><s class="text-muted">49,99USD</s> 24,99USD</p>              
-              </article>
+
+                <%
+                if (offers.length) {
+                    for(let i = 0; i < offers.length; i++) { 
+                %>
+                <article class="col-md-4">
+                    <div class="image-container position-relative mb-3">
+                        <img src="/images/<%=offers[i].primary_image_src%>" class="rounded img-fluid" alt="...">
+                        <span class="position-absolute bottom-0 start-0 ms-3 mb-3 badge bg-primary fs-5">-<%=offers[i].discount%>%</span>
+                    </div>
+                    <h4><a href="/products/<%=offers[i].id%>"><%=offers[i].title%></a></h4>
+                    <p><s class="text-muted"><%=offers[i].price%>USD</s> <%=offers[i].price_d%>USD</p>
+                </article>
+                <%
+                    }
+                } else {
+                %>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="text-center">No hay ofertas disponibles</p>
+                        </div>
+                    </div>
+                <%
+                }
+                %>
+
             </div>
         </section>
 
@@ -74,18 +91,28 @@
               <div class="col-12">
                 <h4 class="mb-3">Novedades</h4>
               </div>
-              <article class="col-md-3">
-                  <img src="/images/fifa23.jpeg" class="rounded img-fluid" alt="...">
-              </article>
-              <article class="col-md-3">
-                  <img src="/images/fall-guys.jpeg" class="rounded img-fluid" alt="...">
-              </article>
-              <article class="col-md-3">
-                  <img src="/images/multiversus.jpeg" class="rounded img-fluid" alt="...">
-              </article>
-              <article class="col-md-3">
-                  <img src="/images/nba2k23.webp" class="rounded img-fluid" alt="...">
-              </article>         
+
+                <%
+                if (news.length) {
+                    for(let i = 0; i < news.length; i++) { 
+                %>
+                <article class="col-md-3">
+                    <a href="/products/<%=news[i].id%>">
+                        <img src="/images/<%=news[i].primary_image_src%>" class="rounded img-fluid" alt="...">
+                    </a>
+                </article>
+                <%
+                    }
+                } else {
+                %>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="text-center">Aun no hay novedades</p>
+                        </div>
+                    </div>
+                <%
+                }
+                %>
             </div>
         </section>
 
@@ -94,18 +121,27 @@
               <div class="col-12">
                 <h4 class="mb-3">Próximamente</h4>
               </div>
-              <article class="col-md-3">
-                  <img src="/images/fifa23.jpeg" class="rounded img-fluid" alt="...">
-              </article>
-              <article class="col-md-3">
-                  <img src="/images/fall-guys.jpeg" class="rounded img-fluid" alt="...">
-              </article>
-              <article class="col-md-3">
-                  <img src="/images/multiversus.jpeg" class="rounded img-fluid" alt="...">
-              </article>
-              <article class="col-md-3">
-                  <img src="/images/nba2k23.webp" class="rounded img-fluid" alt="...">
-              </article>          
+                <%
+                if (comingSoon.length) {
+                    for(let i = 0; i < comingSoon.length; i++) { 
+                %>
+                <article class="col-md-3">
+                    <a href="/products/<%=comingSoon[i].id%>">
+                        <img src="/images/<%=comingSoon[i].primary_image_src%>" class="rounded img-fluid" alt="...">
+                    </a>
+                </article>
+                <%
+                    }
+                } else {
+                %>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="text-center">Aun no hay novedades</p>
+                        </div>
+                    </div>
+                <%
+                }
+                %>
             </div>
         </section>
 
@@ -117,27 +153,30 @@
                   <li><h4 class="mb-3 text-muted">Mejor valorados</h4></li>
                 </ul>
               </div>
-              <article class="col-md-2">
-                  <img src="/images/fifa23.jpeg" class="rounded img-fluid" alt="...">
-              </article>
-              <article class="col-md-2">
-                  <img src="/images/fall-guys.jpeg" class="rounded img-fluid" alt="...">
-              </article>
-              <article class="col-md-2">
-                  <img src="/images/multiversus.jpeg" class="rounded img-fluid" alt="...">
-              </article>
-              <article class="col-md-2">
-                  <img src="/images/nba2k23.webp" class="rounded img-fluid" alt="...">
-              </article>
-              <article class="col-md-2">
-                  <img src="/images/nba2k23.webp" class="rounded img-fluid" alt="...">
-              </article>
-              <article class="col-md-2">
-                  <img src="/images/nba2k23.webp" class="rounded img-fluid" alt="...">
-              </article>
+                <%
+                if (topSales.length) {
+                    for(let i = 0; i < topSales.length; i++) { 
+                %>
+                <article class="col-md-3">
+                    <a href="/products/<%=topSales[i].id%>">
+                        <img src="/images/<%=topSales[i].primary_image_src%>" class="rounded img-fluid" alt="...">
+                    </a>
+                </article>
+                <%
+                    }
+                } else {
+                %>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="text-center">Aun no hay novedades</p>
+                        </div>
+                    </div>
+                <%
+                }
+                %>
             </div>
         </section>
-
+<!--
         <section id="noticias" class="py-5">
             <div class="row">
               <div class="col-12">
@@ -161,7 +200,7 @@
             </div>
         </section>
       </div>
-
+-->
       <%- include('./partials/newsletter') %>
     </main>
     <%- include('./partials/footer') %>
