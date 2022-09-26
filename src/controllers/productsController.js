@@ -33,6 +33,12 @@ const productsController = {
             game: games,
         });
     },
+    detalleProducto: (req, res) => {
+        let game = GameListModel.findById(req.params.id);
+        res.render('products/detailsProduct', {
+            game: game,
+        });
+    },
 };
 
 module.exports = productsController;

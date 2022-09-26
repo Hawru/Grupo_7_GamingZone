@@ -23,15 +23,15 @@
               <div id="product-slider">
                 <div class="row mb-3">
                   <div class="col-12 position-relative">
-                    <img src="/images/spiderman.jpeg" class="img-fluid rounded">
+                    <img src="/images/<%=game.primary_image_src%>" class="img-fluid rounded">
                     <div class="play-button position-absolute shadow-lg d-flex align-items-center justify-content-center"><i class="fa-solid fa-play fs-2"></i></div>
                   </div>
                 </div>
                 <div class="row g-3">
-                  <div class="col"><img src="/images/spiderman.jpeg" class="img-fluid rounded"></div>
-                  <div class="col"><img src="/images/spiderman.jpeg" class="img-fluid rounded"></div>
-                  <div class="col"><img src="/images/spiderman.jpeg" class="img-fluid rounded"></div>
-                  <div class="col"><img src="/images/spiderman.jpeg" class="img-fluid rounded"></div>
+                  <div class="col"><img src="/images/<%=game.primary_image_src%>" class="img-fluid rounded"></div>
+                  <div class="col"><img src="/images/<%=game.primary_image_src%>" class="img-fluid rounded"></div>
+                  <div class="col"><img src="/images/<%=game.primary_image_src%>" class="img-fluid rounded"></div>
+                  <div class="col"><img src="/images/<%=game.primary_image_src%>" class="img-fluid rounded"></div>
                 </div>
               </div>
             </div>
@@ -42,7 +42,11 @@
                   <button type="button" class="btn btn-outline-secondary">Standard</button>
                   <button type="button" class="btn btn-outline-secondary">Deluxe</button>
                 </div>
-                <p class="fw-bold fs-4 my-4"><span class="text-muted fw-normal text-decoration-line-through">69,99 USD</span> 49,99 USD</p>
+                <% if (game.discount > 0) { %>
+                <p class="fw-bold fs-4 my-4"><span class="text-muted fw-normal text-decoration-line-through"><%=game.price%></span> <%=game.price_d%> USD</p>
+                <% } else { %>
+                <p class="fw-bold fs-4 my-4"></span><%=game.price%> USD</p>
+                <% } %> 
                 <div class="d-grid gap-2">
                   <button class="btn btn-lg btn-primary" type="button"><i class="fa-solid fa-cart-plus"></i> AÑADIR AL CARRITO</button>
                   <button class="btn btn-lg btn-outline-light" type="button"><i class="fa-solid fa-heart"></i> LISTA DE DESEOS</button>
@@ -56,7 +60,7 @@
               <div class="row" id="Descripcion">
                 <div class="col-12">
                   <h4 class="mb-4">Descipción</h4>
-                  <p>Desarrollado por Insomniac Games en colaboración con Marvel y optimizado para PC por Nixxes Software, Marvel's Spider-Man Remasterizado para PC presenta a un experimentado Peter Parker que lucha contra el hampa y un elenco de villanos archiconocidos en la Nueva York de Marvel. Al mismo tiempo, deberá tratar de equilibrar su caótica vida personal y su carrera mientras el destino de la gran ciudad descansa sobre sus hombros.</p>
+                  <p><%=game.description%> </p>
                 </div>
               </div>
               <div class="row my-4" id="Puntuaciones">
