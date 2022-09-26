@@ -17,7 +17,15 @@ const productsController = {
         res.render('products/createProduct');
     },
     actualizarProducto: (req, res) => {
-        res.render('products/updateProduct');
+        let game = GameListModel.findById(req.params.id);
+
+        if (game) {
+            res.render('products/updateProduct', {
+                game: game,
+            });
+        } else {
+            res.render('404');
+        }
     },
     listaProducto: (req, res) => {
         res.render('products/listProduct');
