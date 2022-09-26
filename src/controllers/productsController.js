@@ -28,7 +28,10 @@ const productsController = {
         }
     },
     listaProducto: (req, res) => {
-        res.render('products/listProduct');
+        let games = GameListModel.getAll().map(game => GameListModel.getResume(game.id));
+        res.render('products/listProduct', {
+            game: games,
+        });
     },
 };
 
