@@ -7,7 +7,17 @@ const base = {
     fileContent: null,
 
     setFilePath(path) {
+        this.clearFileContent();
+
         this.path = path;
+    },
+
+    clearFileContent() {
+        this.fileContent = null;
+    },
+
+    syncContents() {
+        this.getContents(true);
     },
 
     getContents(sync = false) {
@@ -41,4 +51,4 @@ const base = {
     },
 }
 
-module.exports = base;
+module.exports = { ...base};

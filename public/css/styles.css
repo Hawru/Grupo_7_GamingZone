@@ -246,6 +246,10 @@ form hr, #cart-resume hr{
 	margin-bottom:15px;
 }
 
+body.products #product-slider .mini-imgs img {
+	max-height: 100px;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
 

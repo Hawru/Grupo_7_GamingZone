@@ -23,7 +23,7 @@
                 <h1><%=topSales[0].title%></h1>
                 <p><%=topSales[0].description%></p>
                 <div class="d-flex align-items-center">
-                  <span class="fs-3 me-3"><%=topSales[0].discount ? topSales[0].price_d : topSales[0].price%>USD</span>
+                  <span class="fs-3 me-3"><%=topSales[0].discount ? topSales[0].pretty_price_d : topSales[0].pretty_price%>USD</span>
                   <a href="/products/<%=topSales[0].id%>" class="btn btn-lg btn-primary border-0" role="button"><i class="fa-solid fa-cart-shopping"></i> COMPRAR</a>
                 </div>
               </div>
@@ -64,10 +64,10 @@
                 <article class="col-md-4">
                     <div class="image-container position-relative mb-3">
                         <img src="/images/<%=offers[i].primary_image_src%>" class="rounded img-fluid" alt="...">
-                        <span class="position-absolute bottom-0 start-0 ms-3 mb-3 badge bg-primary fs-5">-<%=offers[i].discount%>%</span>
+                        <span class="position-absolute bottom-0 start-0 ms-3 mb-3 badge bg-primary fs-5">-<%=offers[i].pretty_discount%></span>
                     </div>
                     <h4><a href="/products/<%=offers[i].id%>"><%=offers[i].title%></a></h4>
-                    <p><s class="text-muted"><%=offers[i].price%>USD</s> <%=offers[i].price_d%>USD</p>
+                    <p><s class="text-muted"><%=offers[i].pretty_price%>USD</s> <%=offers[i].pretty_price_d%>USD</p>
                 </article>
                 <%
                     }
