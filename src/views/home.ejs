@@ -61,12 +61,12 @@
                 if (offers.length) {
                     for(let i = 0; i < offers.length; i++) { 
                 %>
-                <article class="col-md-4">
-                    <div class="image-container position-relative mb-3">
+                <article class="col-md-4 mb-3">
+                    <div class="image-container position-relative">
                         <img src="/images/<%=offers[i].primary_image_src%>" class="rounded img-fluid" alt="...">
                         <span class="position-absolute bottom-0 start-0 ms-3 mb-3 badge bg-primary fs-5">-<%=offers[i].pretty_discount%></span>
                     </div>
-                    <h4><a href="/products/<%=offers[i].id%>"><%=offers[i].title%></a></h4>
+                    <h4><a href="/products/<%=offers[i].id%>" class="text-decoration-none text-light"><%=offers[i].title%></a></h4>
                     <p><s class="text-muted"><%=offers[i].pretty_price%>USD</s> <%=offers[i].pretty_price_d%>USD</p>
                 </article>
                 <%
@@ -96,8 +96,9 @@
                 if (news.length) {
                     for(let i = 0; i < news.length; i++) { 
                 %>
-                <article class="col-md-3">
-                    <a href="/products/<%=news[i].id%>">
+                <article class="col-md-3 mb-3">
+                    <a class="position-relative overflow-hidden w-100 h-100 d-block" href="/products/<%=news[i].id%>">
+                        <div class="product-hover position-absolute w-100 h-100 rounded"><h5 class="text-light"><%=news[i].title%></h5></div>
                         <img src="/images/<%=news[i].primary_image_src%>" class="rounded img-fluid" alt="...">
                     </a>
                 </article>
@@ -125,8 +126,9 @@
                 if (comingSoon.length) {
                     for(let i = 0; i < comingSoon.length; i++) { 
                 %>
-                <article class="col-md-3">
-                    <a href="/products/<%=comingSoon[i].id%>">
+                <article class="col-md-3 mb-3">
+                    <a class="position-relative overflow-hidden w-100 h-100 d-block" href="/products/<%=comingSoon[i].id%>">
+                        <div class="product-hover position-absolute w-100 h-100 rounded"><h5 class="text-light"><%=comingSoon[i].title%></h5></div>
                         <img src="/images/<%=comingSoon[i].primary_image_src%>" class="rounded img-fluid" alt="...">
                     </a>
                 </article>
@@ -158,7 +160,8 @@
                     for(let i = 0; i < topSales.length; i++) { 
                 %>
                 <article class="col-md-3">
-                    <a href="/products/<%=topSales[i].id%>">
+                    <a class="position-relative overflow-hidden w-100 h-100 d-block mb-3" href="/products/<%=topSales[i].id%>">
+                        <div class="product-hover position-absolute w-100 h-100 rounded"><h5 class="text-light"><%=topSales[i].title%></h5></div>
                         <img src="/images/<%=topSales[i].primary_image_src%>" class="rounded img-fluid" alt="...">
                     </a>
                 </article>

@@ -97,6 +97,21 @@ body{
 	margin-bottom: 25px;
 }
 
+.product-hover{
+	display:none;
+	transition: all 0.5s ease-out;
+	overflow:hidden;
+}
+
+article:hover .product-hover{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	transition: all 0.5s ease-out;
+	background-color:rgba(0,0,0,0.5);
+}
+
+
 /* BANNER NEWSLETTER */
 
 #newsletter input{
