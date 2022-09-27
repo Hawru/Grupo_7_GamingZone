@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+    <%- include('../partials/head', {title: 'Gaming Zone - List Product'}) %>
+    <body>  
+      <%- include('../partials/header') %>
+      <main>
+        <section class="container">
+          <div class="row">
+            <div class="col-12 text-center py-5">
+              <h4 class="mb-3">Todos nuestros juegos</h4>
+            </div>
+            <% for(let i = 0; i < game.length; i++ ) { %>
+            <a href="/products/<%= game[i].id  %> " class="col-md-4" style="text-decoration: none; color: white" >
+            <article class="col-md-12"> 
+              <div class="image-container position-relative mb-3">
+                <img src="/images/<%= game[i].primary_image_src %>" class="rounded img-fluid" alt="...">
+                <% if (game[i].discount > 0) { %>
+                  <span class="position-absolute bottom-0 start-0 ms-3 mb-3 badge bg-primary fs-5">-<%= game[i].discount%>%</span>
+                <%}%>
+              </div>
+              <h4><%= game[i].title %></h4>
+              <% if (game[i].discount > 0) { %>
+              <p><s class="text-muted"><%=game[i].pretty_price%>USD</s> <%=game[i].pretty_price_d%>USD</p>
+              <%} else {%>
+              <p><%= game[i].pretty_price %> USD</p>
+              <%}%>
+              
+            </article>
+          </a>
+            <% } %>
+         </div>
+        </section>
+      </main>
+      <%- include('../partials/footer') %>
+      <%- include('../partials/scripts') %>
+    </body>
+  </html>

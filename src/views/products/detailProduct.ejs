@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <%- include('../partials/head', {title: 'Gaming Zone - Product'}) %>
+  <body class="products">
+    <%- include('../partials/header') %>
+    <main class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+              <h1 class="fs-2"><span class="badge bg-primary"><%=game.score_avg%> <i class="fa-solid fa-star"></i></span> <%=game.title%></h1>
+          </div>
+          <div class="col">
+            <ul class="d-flex justify-content-end list-unstyled" id="platforms">
+              <% for (let i = 0; i < game.plataforms.length;i++) {%>
+                <li class="fs-3 me-2"><i class="<%=game.plataforms[i].icon%>"></i></li>
+              <% } %>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8 mb-4">
+            <div id="product-slider">
+              <div class="row mb-3">
+                <div class="col-12 position-relative">
+                  <img src="/images/<%=game.primary_image_src%>" class="img-fluid rounded">
+                  <div class="play-button position-absolute shadow-lg d-flex align-items-center justify-content-center"><i class="fa-solid fa-play fs-2"></i></div>
+                </div>
+              </div>
+              <% if (game.images.length) { %>
+              <div class="row g-3 mini-imgs">
+                <% for (let i = 0; i < game.images.length;i++) {%>
+                <div class="col"><img src="/images/<%=game.images[i].src%>" class="img-fluid rounded"></div>
+                <% } %>
+              </div>
+              <% } %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div id="product-resume" class="bg-primary-dark p-4 rounded mb-5 text-center">
+              <h5>Seleccionar Versión</h5>
+              <% if (game.versions.length) { %>
+              <div class="btn-group btn-group-lg w-100" role="group">
+                <% for (let i = 0; i < game.versions.length;i++) {%>
+                <button type="button" class="btn btn-outline-secondary"><%=game.versions[i].title%></button>
+                <% } %>
+              </div>
+              <% } %>
+              <p class="fw-bold fs-4 my-4">
+                <% if(game.discount) { %>
+                <span class="text-muted fw-normal text-decoration-line-through"><%=game.pretty_price%> USD</span>
+                <% } %>
+                <span><%=game.discount ? game.pretty_price_d : game.pretty_price%> USD</span>
+              </p>
+              <div class="d-grid gap-2">
+                <button class="btn btn-lg btn-primary" type="button"><i class="fa-solid fa-cart-plus"></i> AÑADIR AL CARRITO</button>
+                <button class="btn btn-lg btn-outline-light" type="button"><i class="fa-solid fa-heart"></i> LISTA DE DESEOS</button>
+              </div>
+            </div>
+           <a href="/products/<%=game.id%>/update" class="text-center d-block">EDITAR INFORMACIÓN</a>
+          </div>
+        </div>
+        <div class="row" id="product-content">
+          <div class="col-md-8">
+
+            <div class="row" id="Descripcion">
+              <div class="col-12">
+                <h4 class="mb-4">Descipción</h4>
+                <p><%=game.description%></p>
+              </div>
+            </div>
+
+            <% if (game.scores.length) { %>
+            <div class="row my-4" id="Puntuaciones">
+              <div class="col-12">
+                <h4 class="mb-4">Puntuaciones</h4>
+              </div>
+              <% for (let i = 0; i < game.scores.length;i++) {%>
+              <div class="col-3">
+                <div class="card text-center bg-primary-dark">
+                  <div class="card-body d-flex align-items-center flex-column text-center">
+                    <div class="chart-puntuacion d-flex align-items-center justify-content-center mb-3">
+                      <span class="fs-2"><%=game.scores[i].score_value%></span>
+                    </div>
+                    <%=game.scores[i].title%>
+                  </div>
+                </div>
+              </div>
+              <% } %>
+            </div>
+            <% } %>
+
+            <% if (game.requirements.length) { %>
+            <div class="row my-4" id="requirements">
+              <div class="col-12">
+                <h4 class="mb-4">Requerimientos</h4>
+              </div>
+              <div class="col-md-6">
+                <% for (let i = 0; i < game.requirements.length;i++) {%>
+                <div class="item-requirement d-flex justify-content-between">
+                  <p><%=game.requirements[i].title%></p>
+                  <p class="text-muted"><%=game.requirements[i].requirement_value%></p>
+                </div>
+                <% } %>
+              </div>
+            </div>
+            <% } %>
+
+          </div>
+        </div>
+
+      </div>
+
+      <%- include('../partials/newsletter') %>
+    </main>
+    <%- include('../partials/footer') %>
+    <%- include('../partials/scripts') %>
+  </body>
+</html>

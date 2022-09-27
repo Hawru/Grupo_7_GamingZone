@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "xbox",
+    "title": "XBOX",
+    "icon": "fa-brands fa-xbox"
+  },
+  {
+    "id": 2,
+    "name": "playstation",
+    "title": "Play Station",
+    "icon": "fa-brands fa-playstation"
+  },
+  {
+    "id": 3,
+    "name": "pc",
+    "title": "PC",
+    "icon": "fa-brands fa-windows"
+  },
+  {
+    "id": 4,
+    "name": "mac",
+    "title": "MAC",
+    "icon": "fa-brands fa-apple"
+  }
+]
