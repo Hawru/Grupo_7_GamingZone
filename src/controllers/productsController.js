@@ -29,7 +29,6 @@ const productsController = {
     },
     listaProducto: (req, res) => {
         let game = GameListModel.getAll().map(game => GameListModel.getResume(game.id));
-        console.log(game)
         if (game) {
             res.render('products/listProduct', {
                 game: game,
