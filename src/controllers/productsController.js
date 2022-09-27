@@ -6,7 +6,7 @@ const productsController = {
         let game = GameListModel.findById(req.params.id);
 
         if (game) {
-            res.render('product', {
+            res.render('products/detailProduct', {
                 game: game,
             });
         } else {
@@ -28,16 +28,15 @@ const productsController = {
         }
     },
     listaProducto: (req, res) => {
-        let games = GameListModel.getAll().map(game => GameListModel.getResume(game.id));
-        res.render('products/listProduct', {
-            game: games,
-        });
-    },
-    detalleProducto: (req, res) => {
-        let game = GameListModel.findById(req.params.id);
-        res.render('products/detailsProduct', {
-            game: game,
-        });
+        let game = GameListModel.getAll().map(game => GameListModel.getResume(game.id));
+        console.log(game)
+        if (game) {
+            res.render('products/listProduct', {
+                game: game,
+            });
+        } else {
+            res.render('404');
+        }
     },
 };
 

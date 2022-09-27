@@ -10,7 +10,7 @@
               <h4 class="mb-3">Todos nuestros juegos</h4>
             </div>
             <% for(let i = 0; i < game.length; i++ ) { %>
-            <a href="/products/detail/<%= game[i].id  %> " class="col-md-4" style="text-decoration: none; color: white" >
+            <a href="/products/<%= game[i].id  %> " class="col-md-4" style="text-decoration: none; color: white" >
             <article class="col-md-12"> 
               <div class="image-container position-relative mb-3">
                 <img src="/images/<%= game[i].primary_image_src %>" class="rounded img-fluid" alt="...">

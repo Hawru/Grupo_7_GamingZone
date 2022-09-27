@@ -7,6 +7,5 @@ router.get('/create', productsController.crearProducto)
 router.get('/list', productsController.listaProducto)
 router.get('/:id', productsController.verProducto);
 router.get('/:id/update', productsController.actualizarProducto)
-router.get('/detail/:id', productsController.detalleProducto)
 
 module.exports = router;
