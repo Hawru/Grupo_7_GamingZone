@@ -16,3 +16,7 @@ app.listen(PORT, () => console.log('server corriendo en puerto 3000'));
 
 //Routes
 app.use('/', require('./routes/index.routes'));
+
+app.use(function(req, res, next) {
+    res.status(404).render('404');
+  });
