@@ -37,6 +37,10 @@ const productsController = {
     guardarProducto: (req, res) => {
         // Aca va la función para guardar los nuevos datos del producto
     },
+    // Acción de eliminar producto
+    eliminarProducto: (req, res) => {
+        // Aca va la función para eliminar un producto
+    },
     listaProducto: (req, res) => {
         let game = GameListModel.getAll().map(game => GameListModel.getResume(game.id));
         if (game) {
