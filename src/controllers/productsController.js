@@ -13,9 +13,15 @@ const productsController = {
             res.render('404');
         }
     },
+    // Form de crear producto
     crearProducto: (req, res) => {
         res.render('products/createProduct');
     },
+     // Acción de crear producto
+    almacenarProducto: (req, res) => {
+        // Aca va la función para guardar los nuevos datos del producto
+    },   
+    // Form de actualizar producto
     actualizarProducto: (req, res) => {
         let game = GameListModel.findById(req.params.id);
 
@@ -26,6 +32,10 @@ const productsController = {
         } else {
             res.render('404');
         }
+    },
+    // Acción de actualizar producto
+    guardarProducto: (req, res) => {
+        // Aca va la función para guardar los nuevos datos del producto
     },
     listaProducto: (req, res) => {
         let game = GameListModel.getAll().map(game => GameListModel.getResume(game.id));

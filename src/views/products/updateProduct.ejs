@@ -6,22 +6,22 @@
       <main id="bg-update-product" class="d-flex align-items-center p-4">
         <div class="container">
           <div class="row justify-content-center py-3">
-            <form class="col-lg-6 rounded-4 p-4 shadow bg-dark" id="create-form">
+            <form method="POST" action="products/<%=game.id%>/update?_method=PUT" class="col-lg-6 rounded-4 p-4 shadow bg-dark" id="edit-form">
               <h2 class="mt-0 mb-4 text-center">Actualizar producto</h2>
               <h4>Información General</h4>
               <hr>  
               <div class="input-group mb-3">
-                <input type="text" class="form-control" name="title" placeholder="Nombre de producto" required>
+                <input type="text" class="form-control" name="title" placeholder="Nombre de producto" value="<%=game.title%>" required>
               </div>
               <div class="input-group mb-3">
-                <textarea class="form-control" name="desciption" placeholder="Descripción" rows="3" required></textarea>
+                <textarea class="form-control" name="desciption" placeholder="Descripción" rows="3" required><%=game.description%></textarea>
               </div>
               <div class="row">
                 <div class="col-6 mb-3">
-                  <input type="text" class="form-control" name="price" placeholder="Precio" required>
+                  <input type="text" class="form-control" name="price" placeholder="Precio" value="<%=game.price%>" required>
                 </div>
                 <div class="col-6 mb-3">
-                  <input type="text" class="form-control" name="discount" placeholder="Descuento" required>
+                  <input type="text" class="form-control" name="discount" placeholder="Descuento" value="<%=game.discount%>" required>
                 </div>             
               </div>
               <div class="mb-3">               
