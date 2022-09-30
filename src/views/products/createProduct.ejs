@@ -5,26 +5,60 @@
       <%- include('../partials/header') %>
       <main id="bg-create-product" class="d-flex align-items-center p-4">
         <div class="container">
-          <div class="row justify-content-center text-center py-3">
+          <div class="row justify-content-center py-3">
             <form class="col-lg-6 rounded-4 p-4  shadow bg-dark" id="create-form">
-              <h2 class="mt-0 mb-4">Crear producto</h2>
+              <h2 class="mt-0 mb-4 text-center">Crear producto</h2>
+              <h4>Información General</h4>
+              <hr>  
               <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Nombre de producto" required>
+                <input type="text" class="form-control" name="title" placeholder="Nombre de producto" required>
               </div>
               <div class="input-group mb-3">
-                <textarea class="form-control" placeholder="Descripción" rows="3" required></textarea>
+                <textarea class="form-control" name="desciption" placeholder="Descripción" rows="3" required></textarea>
               </div>
               <div class="row">
-                <div class="col-md-6 mb-3">
-                  <input type="text" class="form-control" placeholder="Precio" required>
+                <div class="col-6 mb-3">
+                  <input type="text" class="form-control" name="price" placeholder="Precio" required>
                 </div>
-                <div class="col-md-6 mb-3">
-                  <input type="text" class="form-control" placeholder="Descuento" required>
+                <div class="col-6 mb-3">
+                  <input type="text" class="form-control" name="discount" placeholder="Descuento" required>
                 </div>             
               </div>
-              <div class="mb-3">
-                <label for="formFile" class="form-label">Elegir Imagen</label>
-                <input class="form-control" type="file" id="formFile">
+              <div class="mb-3">               
+                <label for="primary_image_id" class="form-label">Imagen de portada</label>
+                <input class="form-control" name="primary_image_id" type="file" id="formFile">
+              </div>
+                <h4>Requerimientos</h4>
+                <hr>             
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="requirements_id3" class="form-label">Placa de Video</label>
+                  <input type="text" class="form-control" name="requirements_id1" placeholder="Placa de Video" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="requirements_id3" class="form-label">Procesador</label>
+                  <input type="text" class="form-control" name="requirements_id2" placeholder="Procesador" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="requirements_id3" class="form-label">Memoria</label>
+                  <select class="form-select" name="requirements_id3">
+                    <option selected>8 GB de RAM</option>
+                    <option value="1">12 GB de RAM</option>
+                    <option value="2">16 GB de RAM</option>
+                    <option value="3">32 GB de RAM</option>
+                  </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="requirements_id4" class="form-label">Almacenamiento</label>
+                  <input type="text" class="form-control" name="requirements_id4" placeholder="Almacenamientoo" required>
+                </div>
+                <div class="col-md-12 mb-3">
+                  <label for="requirements_id5" class="form-label">Sistema Operativo</label><br>
+                  <input type="checkbox" name="requirements_id5" id="cbox1" value="Windows" class="me-2"><label for="cbox1" class="me-2"> Windows</label>
+                  <input type="checkbox" name="requirements_id5" id="cbox2" value="MacOs" class="me-2"><label for="cbox2" class="me-2"> MacOs</label>
+                  <input type="checkbox" name="requirements_id5" id="cbox3" value="PlayStation" class="me-2"><label for="cbox3" class="me-2"> PlayStation</label>
+                  <input type="checkbox" name="requirements_id5" id="cbox4" value="Xbox" class="me-2"><label for="cbox4" class="me-2"> Xbox</label>
+                </div>
               </div>
               <div class="d-grid gap-2">
                 <button class="btn btn-lg btn-primary mb-2" type="button">Crear</button>

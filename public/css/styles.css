@@ -158,7 +158,6 @@ ul#social-links li a{
 #bg-login, #bg-register, #bg-create-product, #bg-update-product{
     background-position: center center;
     background-size: cover;
-	height: 75vh;
 	min-height: 550px;
 }
 
