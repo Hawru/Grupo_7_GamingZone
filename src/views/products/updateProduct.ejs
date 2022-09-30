@@ -6,7 +6,7 @@
       <main id="bg-update-product" class="d-flex align-items-center p-4">
         <div class="container">
           <div class="row justify-content-center py-3">
-            <form method="POST" action="products/<%=game.id%>/update?_method=PUT" class="col-lg-6 rounded-4 p-4 shadow bg-dark" id="edit-form">
+            <form method="POST" action="products/<%=game.id%>/update?_method=PUT" class="col-lg-6 rounded-4 p-4 shadow bg-dark" id="edit-form" enctype="multipart/form-data">
               <h2 class="mt-0 mb-4 text-center">Actualizar producto</h2>
               <h4>Información General</h4>
               <hr>  
@@ -26,7 +26,7 @@
               </div>
               <div class="mb-3">               
                 <label for="primary_image_id" class="form-label">Imagen de portada</label>
-                <input class="form-control" name="primary_image_id" type="file" id="formFile">
+                <input class="form-control" name="primary_image" type="file" id="formFile">
               </div>
                 <h4>Requerimientos</h4>
                 <hr>             
