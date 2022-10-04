@@ -13,7 +13,7 @@ base.setFilePath(path.join(__dirname, '/../data/lista_de_juegos.json'));
 // retorno un ID usando el ultimo existente de la lista
 let makeId = (list) => {
     let tmp = list.map(j => j.id).sort((a, b) => a - b).reverse();
-console.log(tmp);
+
     return (tmp[0] || 0) + 1;
 }
 
@@ -46,7 +46,11 @@ const newBase = {
     },
 
     getAll() {
-        return this.getContents().map(game => this.getResume(game.id));
+        console.log(1);
+        let tmp = this.getContents().map(game => this.getResume(game.id || null)).filter(b => b);
+        console.log(2);
+
+        return tmp;
     },
 
     findById(id) {
