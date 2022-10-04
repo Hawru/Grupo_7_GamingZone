@@ -10,24 +10,30 @@ const scoreTypeModel = require('./scoreTypeModel');
 
 base.setFilePath(path.join(__dirname, '/../data/lista_de_juegos.json'));
 
+// retorno un ID usando el ultimo existente de la lista
+let makeId = (list) => {
+    let tmp = list.map(j => j.id).sort((a, b) => a - b).reverse();
+console.log(tmp);
+    return (tmp[0] || 0) + 1;
+}
+
 const newBase = {
     ...base,
 
     saveData() {
-        fs.writeFileSync(this.path, JSON.stringify(this.getContents()));
+        fs.writeFileSync(this.path, JSON.stringify(this.getContents(), null, " "));
     },
 
     setContents(data) {
         this.fileContent = data;
     },
 
-    save(game) {
+    create(game) {
         let list = this.getAll();
 
         game = {
             ...game,
-
-            id: uuidv4(),
+            id: makeId(list),
         };
 
         list.push(game);
@@ -92,9 +98,9 @@ const newBase = {
 
         return {
             ...game,
-            pretty_price: (game.price + 0).toFixed(2).replace('.', ','),
-            pretty_price_d: (game.price_d + 0).toFixed(2).replace('.', ','),
-            pretty_discount: (game.discount + 0).toFixed(2).replace('.', ',') + "%",
+            pretty_price: (parseFloat(game.price) + 0).toFixed(2).replace('.', ','),
+            pretty_price_d: (parseFloat(game.price_d) + 0).toFixed(2).replace('.', ','),
+            pretty_discount: (parseFloat(game.discount) + 0).toFixed(2).replace('.', ',') + "%",
             primary_image_src: primaryImage.src || '',
             release_date: game.release_date,
             is_new: isNew,

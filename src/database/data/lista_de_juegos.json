@@ -6,10 +6,7 @@
   "price": 100,
   "price_d": 0,
   "discount": 0,
-  "versions": [
-   1,
-   2
-  ],
+  "versions": [],
   "release_date": "2022-11-01",
   "primary_image_id": 1,
   "images": [
@@ -21,28 +18,35 @@
   "requirements": [
    {
     "id": 1,
-    "value": "Nvidia 1050"
+    "name": "video",
+    "title": "Placa de video"
    },
    {
     "id": 2,
-    "value": "Intel Core I5"
+    "name": "cpu",
+    "title": "Procesador"
    }
   ],
   "scores": [
    {
     "id": 1,
-    "value": 9
+    "name": "difficulty",
+    "title": "Dificultad"
    },
    {
     "id": 2,
-    "value": 8.5
+    "name": "graphics",
+    "title": "Graficos"
    }
   ],
-  "plataforms": [
-   1,
-   2,
-   3
-  ]
+  "plataforms": [],
+  "pretty_price": "100,00",
+  "pretty_price_d": "0,00",
+  "pretty_discount": "0,00%",
+  "primary_image_src": "spiderman.jpeg",
+  "is_new": false,
+  "coming_soon": true,
+  "score_avg": 0
  },
  {
   "id": 2,
@@ -51,10 +55,7 @@
   "price": 100,
   "price_d": 90,
   "discount": 10,
-  "versions": [
-   1,
-   2
-  ],
+  "versions": [],
   "release_date": "2022-11-01",
   "primary_image_id": 1,
   "images": [
@@ -66,28 +67,35 @@
   "requirements": [
    {
     "id": 1,
-    "value": "Nvidia 1050"
+    "name": "video",
+    "title": "Placa de video"
    },
    {
     "id": 2,
-    "value": "Intel Core I5"
+    "name": "cpu",
+    "title": "Procesador"
    }
   ],
   "scores": [
    {
     "id": 1,
-    "value": 9
+    "name": "difficulty",
+    "title": "Dificultad"
    },
    {
     "id": 2,
-    "value": 8.5
+    "name": "graphics",
+    "title": "Graficos"
    }
   ],
-  "plataforms": [
-   1,
-   2,
-   3
-  ]
+  "plataforms": [],
+  "pretty_price": "100,00",
+  "pretty_price_d": "90,00",
+  "pretty_discount": "10,00%",
+  "primary_image_src": "oferta-03.jpeg",
+  "is_new": false,
+  "coming_soon": true,
+  "score_avg": 0
  },
  {
   "id": 3,
@@ -96,10 +104,7 @@
   "price": 100,
   "price_d": 0,
   "discount": 0,
-  "versions": [
-   1,
-   2
-  ],
+  "versions": [],
   "release_date": "2022-11-01",
   "primary_image_id": 1,
   "images": [
@@ -111,28 +116,35 @@
   "requirements": [
    {
     "id": 1,
-    "value": "Nvidia 1050"
+    "name": "video",
+    "title": "Placa de video"
    },
    {
     "id": 2,
-    "value": "Intel Core I5"
+    "name": "cpu",
+    "title": "Procesador"
    }
   ],
   "scores": [
    {
     "id": 1,
-    "value": 9
+    "name": "difficulty",
+    "title": "Dificultad"
    },
    {
     "id": 2,
-    "value": 8.5
+    "name": "graphics",
+    "title": "Graficos"
    }
   ],
-  "plataforms": [
-   1,
-   2,
-   3
-  ]
+  "plataforms": [],
+  "pretty_price": "100,00",
+  "pretty_price_d": "0,00",
+  "pretty_discount": "0,00%",
+  "primary_image_src": "multiversus.jpeg",
+  "is_new": false,
+  "coming_soon": true,
+  "score_avg": 0
  },
  {
   "id": 4,
@@ -141,10 +153,7 @@
   "price": 100,
   "price_d": 0,
   "discount": 0,
-  "versions": [
-   1,
-   2
-  ],
+  "versions": [],
   "release_date": "2022-11-01",
   "primary_image_id": 1,
   "images": [
@@ -156,28 +165,35 @@
   "requirements": [
    {
     "id": 1,
-    "value": "Nvidia 1050"
+    "name": "video",
+    "title": "Placa de video"
    },
    {
     "id": 2,
-    "value": "Intel Core I5"
+    "name": "cpu",
+    "title": "Procesador"
    }
   ],
   "scores": [
    {
     "id": 1,
-    "value": 9
+    "name": "difficulty",
+    "title": "Dificultad"
    },
    {
     "id": 2,
-    "value": 8.5
+    "name": "graphics",
+    "title": "Graficos"
    }
   ],
-  "plataforms": [
-   1,
-   2,
-   3
-  ]
+  "plataforms": [],
+  "pretty_price": "100,00",
+  "pretty_price_d": "0,00",
+  "pretty_discount": "0,00%",
+  "primary_image_src": "fifa23.jpeg",
+  "is_new": false,
+  "coming_soon": true,
+  "score_avg": 0
  },
  {
   "id": 5,
@@ -186,10 +202,7 @@
   "price": 100,
   "price_d": 0,
   "discount": 0,
-  "versions": [
-   1,
-   2
-  ],
+  "versions": [],
   "release_date": "2022-11-01",
   "primary_image_id": 1,
   "images": [
@@ -201,28 +214,35 @@
   "requirements": [
    {
     "id": 1,
-    "value": "Nvidia 1050"
+    "name": "video",
+    "title": "Placa de video"
    },
    {
     "id": 2,
-    "value": "Intel Core I5"
+    "name": "cpu",
+    "title": "Procesador"
    }
   ],
   "scores": [
    {
     "id": 1,
-    "value": 9
+    "name": "difficulty",
+    "title": "Dificultad"
    },
    {
     "id": 2,
-    "value": 8.5
+    "name": "graphics",
+    "title": "Graficos"
    }
   ],
-  "plataforms": [
-   1,
-   2,
-   3
-  ]
+  "plataforms": [],
+  "pretty_price": "100,00",
+  "pretty_price_d": "0,00",
+  "pretty_discount": "0,00%",
+  "primary_image_src": "fall-guys.jpeg",
+  "is_new": false,
+  "coming_soon": true,
+  "score_avg": 0
  },
  {
   "id": 6,
@@ -231,10 +251,7 @@
   "price": 100,
   "price_d": 0,
   "discount": 0,
-  "versions": [
-   1,
-   2
-  ],
+  "versions": [],
   "release_date": "2022-11-01",
   "primary_image_id": 1,
   "images": [
@@ -246,28 +263,35 @@
   "requirements": [
    {
     "id": 1,
-    "value": "Nvidia 1050"
+    "name": "video",
+    "title": "Placa de video"
    },
    {
     "id": 2,
-    "value": "Intel Core I5"
+    "name": "cpu",
+    "title": "Procesador"
    }
   ],
   "scores": [
    {
     "id": 1,
-    "value": 9
+    "name": "difficulty",
+    "title": "Dificultad"
    },
    {
     "id": 2,
-    "value": 8.5
+    "name": "graphics",
+    "title": "Graficos"
    }
   ],
-  "plataforms": [
-   1,
-   2,
-   3
-  ]
+  "plataforms": [],
+  "pretty_price": "100,00",
+  "pretty_price_d": "0,00",
+  "pretty_discount": "0,00%",
+  "primary_image_src": "nba2k23.webp",
+  "is_new": false,
+  "coming_soon": true,
+  "score_avg": 0
  },
  {
   "id": 7,
@@ -276,10 +300,7 @@
   "price": 100,
   "price_d": 50,
   "discount": 50,
-  "versions": [
-   1,
-   2
-  ],
+  "versions": [],
   "release_date": "2022-09-25",
   "primary_image_id": 1,
   "images": [
@@ -291,27 +312,263 @@
   "requirements": [
    {
     "id": 1,
-    "value": "Nvidia 1050"
+    "name": "video",
+    "title": "Placa de video"
    },
    {
     "id": 2,
-    "value": "Intel Core I5"
+    "name": "cpu",
+    "title": "Procesador"
    }
   ],
   "scores": [
    {
     "id": 1,
-    "value": 9
+    "name": "difficulty",
+    "title": "Dificultad"
    },
    {
     "id": 2,
-    "value": 8.5
+    "name": "graphics",
+    "title": "Graficos"
    }
   ],
-  "plataforms": [
-   1,
-   2,
-   3
-  ]
+  "plataforms": [],
+  "pretty_price": "100,00",
+  "pretty_price_d": "50,00",
+  "pretty_discount": "50,00%",
+  "primary_image_src": "oferta-02.jpeg",
+  "is_new": true,
+  "coming_soon": false,
+  "score_avg": 0
+ },
+ {
+  "title": "juego",
+  "price": "1",
+  "price_d": 0,
+  "discount": "0",
+  "versions": [],
+  "release_date": null,
+  "primary_image_id": null,
+  "requirements": [],
+  "scores": [],
+  "plataforms": [],
+  "images": [
+   "/products/1664847220648.png"
+  ],
+  "id": 8,
+  "pretty_price": "1,00",
+  "pretty_price_d": "0,00",
+  "pretty_discount": "0,00%",
+  "primary_image_src": "",
+  "is_new": false,
+  "coming_soon": false,
+  "score_avg": 0
+ },
+ {
+  "title": "juego2",
+  "price": "1",
+  "price_d": 0,
+  "discount": "1",
+  "versions": [],
+  "release_date": null,
+  "primary_image_id": 1664847682366,
+  "requirements": [],
+  "scores": [],
+  "plataforms": [],
+  "images": [
+   {
+    "id": 1664847682366,
+    "src": "/products/1664847682362.png"
+   }
+  ],
+  "id": 9,
+  "pretty_price": "1,00",
+  "pretty_price_d": "0,00",
+  "pretty_discount": "1,00%",
+  "primary_image_src": "/products/1664847682362.png",
+  "is_new": false,
+  "coming_soon": false,
+  "score_avg": 0
+ },
+ {
+  "title": "juego2",
+  "price": "1",
+  "price_d": 0,
+  "discount": "1",
+  "versions": [],
+  "release_date": null,
+  "primary_image_id": 1664847873510,
+  "requirements": [],
+  "scores": [],
+  "plataforms": [],
+  "images": [
+   {
+    "id": 1664847873510,
+    "src": "/products/1664847873505.png"
+   }
+  ],
+  "id": 10,
+  "pretty_price": "1,00",
+  "pretty_price_d": "0,00",
+  "pretty_discount": "1,00%",
+  "primary_image_src": "/products/1664847873505.png",
+  "is_new": false,
+  "coming_soon": false,
+  "score_avg": 0
+ },
+ {
+  "title": "juego3",
+  "description": "dasghj",
+  "price": "1",
+  "price_d": 0,
+  "discount": "1",
+  "versions": [],
+  "release_date": null,
+  "primary_image_id": 1664847945566,
+  "requirements": [],
+  "scores": [],
+  "plataforms": [],
+  "images": [
+   {
+    "id": 1664847945566,
+    "src": "/products/1664847945560.png"
+   }
+  ],
+  "id": 11,
+  "pretty_price": "1,00",
+  "pretty_price_d": "0,00",
+  "pretty_discount": "1,00%",
+  "primary_image_src": "/products/1664847945560.png",
+  "is_new": false,
+  "coming_soon": false,
+  "score_avg": 0
+ },
+ {
+  "title": "juego2",
+  "price": "1",
+  "price_d": 0,
+  "discount": "1",
+  "versions": [],
+  "release_date": null,
+  "primary_image_id": 1664847873510,
+  "requirements": [],
+  "scores": [],
+  "plataforms": [],
+  "images": [
+   {
+    "id": 1664847873510,
+    "src": "/products/1664847873505.png"
+   }
+  ],
+  "id": 12,
+  "pretty_price": "1,00",
+  "pretty_price_d": "0,00",
+  "pretty_discount": "1,00%",
+  "primary_image_src": "/products/1664847873505.png",
+  "is_new": false,
+  "coming_soon": false,
+  "score_avg": 0
+ },
+ {
+  "title": "dsa",
+  "description": "das",
+  "price": "1",
+  "price_d": 0,
+  "discount": "1",
+  "versions": [],
+  "release_date": null,
+  "primary_image_id": 1664848482881,
+  "requirements": [],
+  "scores": [],
+  "plataforms": [],
+  "images": [
+   {
+    "id": 1664848482881,
+    "src": "/products/1664848482874.png"
+   }
+  ],
+  "id": 13,
+  "pretty_price": "1,00",
+  "pretty_price_d": "0,00",
+  "pretty_discount": "1,00%",
+  "primary_image_src": "/products/1664848482874.png",
+  "is_new": false,
+  "coming_soon": false,
+  "score_avg": 0
+ },
+ {
+  "title": "dsa",
+  "description": "das",
+  "price": "1",
+  "price_d": 0,
+  "discount": "1",
+  "versions": [],
+  "release_date": null,
+  "primary_image_id": 1664848635355,
+  "requirements": [],
+  "scores": [],
+  "plataforms": [],
+  "images": [
+   {
+    "id": 1664848635355,
+    "src": "/products/1664848635348.png"
+   }
+  ],
+  "id": 14,
+  "pretty_price": "1,00",
+  "pretty_price_d": "0,00",
+  "pretty_discount": "1,00%",
+  "primary_image_src": "/products/1664848635348.png",
+  "is_new": false,
+  "coming_soon": false,
+  "score_avg": 0
+ },
+ {
+  "title": "dsa",
+  "description": "das",
+  "price": "1",
+  "price_d": 0,
+  "discount": "1",
+  "versions": [],
+  "release_date": null,
+  "primary_image_id": 1664848669126,
+  "requirements": [],
+  "scores": [],
+  "plataforms": [],
+  "images": [
+   {
+    "id": 1664848669126,
+    "src": "/products/1664848669117.png"
+   }
+  ],
+  "id": 15,
+  "pretty_price": "1,00",
+  "pretty_price_d": "0,00",
+  "pretty_discount": "1,00%",
+  "primary_image_src": "/products/1664848669117.png",
+  "is_new": false,
+  "coming_soon": false,
+  "score_avg": 0
+ },
+ {
+  "title": "1",
+  "description": "1",
+  "price": "1",
+  "price_d": 0,
+  "discount": "1",
+  "versions": [],
+  "release_date": null,
+  "primary_image_id": 1664848957103,
+  "requirements": [],
+  "scores": [],
+  "plataforms": [],
+  "images": [
+   {
+    "id": 1664848957103,
+    "src": "/products/1664848957092.png"
+   }
+  ],
+  "id": 16
  }
 ]

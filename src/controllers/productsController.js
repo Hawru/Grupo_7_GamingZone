@@ -22,6 +22,39 @@ const productsController = {
     },
      // Acción de crear producto
     almacenarProducto: (req, res) => {
+        let images = [];
+        let primary_image_id = null;
+
+        if (req.file) {
+            let time = new Date;
+            let id = time.getTime();
+
+            images.push({
+                id: id,
+                src: '/products/' + req.file.filename,
+            });
+
+            primary_image_id = id;
+        }
+
+        GameListModel.create({
+            title: req.body.title,
+            description: req.body.description,
+            price: req.body.price,
+            price_d: req.body.price_d || 0,
+            discount: req.body.discount || 0,
+            versions: [],
+            release_date: req.body.release_date || null,
+            primary_image_id: primary_image_id,
+            requirements: [],
+            scores: [],
+            plataforms: [],
+            images: images,
+        });
+
+        res.redirect('/products/list');
+    },
+    almacenarProducto1: (req, res) => {
         let datos = req.body;
 		let idNuevoJuego = (juegos[juegos.length-1].id)+1;
 
@@ -54,26 +87,7 @@ const productsController = {
     },
     // Acción de actualizar producto
     guardarProducto: (req, res) => {
-        let datos = req.body;
-		let idNuevoProducto = (products[products.length-1].id)+1;
-
-		let nuevoProducto ={
-			"id": idNuevoProducto,
-			"title": datos.name,
-			"price": parseInt(datos.price),
-			"discount": parseInt(datos.discount),
-			"requirements_id1": datos.category,
-            "requirements_id2": datos.category,
-            "requirements_id3": datos.category,
-            "requirements_id4": datos.category,
-			"desciption": datos.description,
-			"image": req.file.filename
-		};
-
-		products.push(nuevoProducto);
-		fs.writeFileSync(productsFilePath,JSON.stringify(products, null, " "),'utf-8');
-
-		res.redirect('/');
+        //
     },
     // Acción de eliminar producto
     eliminarProducto: (req, res) => {
