@@ -1,8 +1,6 @@
 const path = require('path');
 const fs = require('fs');
 const GameListModel = require('../database/models/gameListModel');
-const juegosFilePath = path.join(__dirname, '../database/data/lista_de_juegos.json');
-const juegos = JSON.parse(fs.readFileSync(juegosFilePath, 'utf-8'));
 
 const productsController = {
     verProducto: (req, res) => {
@@ -50,29 +48,10 @@ const productsController = {
             scores: [],
             plataforms: [],
             images: images,
+        }, (list) => {
+            res.render('products/successProduct');
         });
-
-        res.redirect('/products/list');
     },
-    almacenarProducto1: (req, res) => {
-        let datos = req.body;
-		let idNuevoJuego = (juegos[juegos.length-1].id)+1;
-
-		let nuevoJuego ={
-			"id": idNuevoJuego,
-			"name": datos.name,
-			"price": parseInt(datos.price),
-			"discount": parseInt(datos.discount),
-            "requirements_01": datos.requirements_id1,
-			"requirements_02": datos.requirements_id2,
-			"description": datos.description,
-			"image": req.file.filename
-		};
-
-		juegos.push(nuevoJuego);
-		fs.writeFileSync(juegosFilePath,JSON.stringify(juegos, null, " "),'utf-8');
-		res.redirect('/');
-    },   
     // Form de actualizar producto
     actualizarProducto: (req, res) => {
         let game = GameListModel.findById(req.params.id);
@@ -94,8 +73,11 @@ const productsController = {
         // Aca va la función para eliminar un producto
     },
     listaProducto: (req, res) => {
-        let game = GameListModel.getAll().map(game => GameListModel.getResume(game.id));
-        if (game) {
+        let game = GameListModel.getAll()
+            .map(game => GameListModel.getResume(game.id || null))
+            .filter(b => b);
+
+        if (game.length) {
             res.render('products/listProduct', {
                 game: game,
             });
