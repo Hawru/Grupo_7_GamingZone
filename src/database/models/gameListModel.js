@@ -20,15 +20,22 @@ let makeId = (list) => {
 const newBase = {
     ...base,
 
-    saveData() {
-        fs.writeFileSync(this.path, JSON.stringify(this.getContents(), null, " "));
+    saveData(list, callback) {
+        fs.writeFile(this.path, JSON.stringify(list), (err) => {
+            console.log(err);
+            if (err) {
+                console.error(err);
+                throw err;
+            }
+            callback(list);
+        });
     },
 
     setContents(data) {
         this.fileContent = data;
     },
 
-    create(game) {
+    create(game, callback) {
         let list = this.getAll();
 
         game = {
@@ -40,15 +47,11 @@ const newBase = {
 
         this.setContents(list);
 
-        this.saveData();
-
-        return game;
+        this.saveData(list, callback);
     },
 
     getAll() {
-        console.log(1);
         let tmp = this.getContents().map(game => this.getResume(game.id || null)).filter(b => b);
-        console.log(2);
 
         return tmp;
     },

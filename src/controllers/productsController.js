@@ -48,9 +48,9 @@ const productsController = {
             scores: [],
             plataforms: [],
             images: images,
+        }, (list) => {
+            res.render('products/successProduct');
         });
-
-        res.redirect('/products/list');
     },
     // Form de actualizar producto
     actualizarProducto: (req, res) => {
