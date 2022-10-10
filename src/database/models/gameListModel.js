@@ -13,22 +13,29 @@ base.setFilePath(path.join(__dirname, '/../data/lista_de_juegos.json'));
 // retorno un ID usando el ultimo existente de la lista
 let makeId = (list) => {
     let tmp = list.map(j => j.id).sort((a, b) => a - b).reverse();
-console.log(tmp);
+
     return (tmp[0] || 0) + 1;
 }
 
 const newBase = {
     ...base,
 
-    saveData() {
-        fs.writeFileSync(this.path, JSON.stringify(this.getContents(), null, " "));
+    saveData(list, callback) {
+        fs.writeFile(this.path, JSON.stringify(list), (err) => {
+            console.log(err);
+            if (err) {
+                console.error(err);
+                throw err;
+            }
+            callback(list);
+        });
     },
 
     setContents(data) {
         this.fileContent = data;
     },
 
-    create(game) {
+    create(game, callback) {
         let list = this.getAll();
 
         game = {
@@ -40,13 +47,13 @@ const newBase = {
 
         this.setContents(list);
 
-        this.saveData();
-
-        return game;
+        this.saveData(list, callback);
     },
 
     getAll() {
-        return this.getContents().map(game => this.getResume(game.id));
+        let tmp = this.getContents().map(game => this.getResume(game.id || null)).filter(b => b);
+
+        return tmp;
     },
 
     findById(id) {
