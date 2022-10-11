@@ -17,7 +17,7 @@ let makeId = (list) => {
     return (tmp[0] || 0) + 1;
 }
 
-const gameListModel = {
+const newBase = {
     ...base,
 
     saveData(list, callback) {
@@ -44,26 +44,6 @@ const gameListModel = {
         };
 
         list.push(game);
-
-        this.setContents(list);
-
-        this.saveData(list, callback);
-    },
-
-    update(id, game, callback) {
-        let list = this.getAll().filter(g => g.id != id);
-
-        game.id = id;
-
-        list.push(game);
-
-        this.setContents(list);
-
-        this.saveData(list, callback);
-    },
-
-    delete(id, callback) {
-        let list = this.getAll().filter(g => g.id != id);
 
         this.setContents(list);
 
@@ -115,6 +95,7 @@ const gameListModel = {
         .filter(v => v);
 
         let requirements = game.requirements.map(req => {
+console.log(req.id);
             let rq = requirementTypeModel.findById(req.id) || {};
 
             return {
@@ -142,4 +123,4 @@ const gameListModel = {
     },
 };
 
-module.exports = gameListModel;
+module.exports = { ...newBase };

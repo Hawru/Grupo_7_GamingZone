@@ -1,6 +1,6 @@
 const path = require('path');
-const gameVersionModel = require('./base');
+const base = require('./base');
 
-gameVersionModel.setFilePath(path.join(__dirname, '/../data/versiones_de_juegos.json'));
+base.setFilePath(path.join(__dirname, '/../data/versiones_de_juegos.json'));
 
-module.exports = gameVersionModel;
+module.exports = { ...base };

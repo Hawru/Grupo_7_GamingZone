@@ -1,6 +1,6 @@
 const path = require('path');
-const scoreTypeModel = require('./base');
+const base = require('./base');
 
-scoreTypeModel.setFilePath(path.join(__dirname, '/../data/tipos_de_puntuacion.json'));
+base.setFilePath(path.join(__dirname, '/../data/tipos_de_puntuacion.json'));
 
-module.exports = scoreTypeModel;
+module.exports = { ...base };

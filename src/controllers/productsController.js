@@ -6,7 +6,7 @@ const GameListModel = require('../database/models/gameListModel');
 const productsController = {
     verProducto: (req, res) => {
         let game = GameListModel.findById(req.params.id);
-console.log(game);
+
         if (game) {
             res.render('products/detailProduct', {
                 game: game,
@@ -39,22 +39,22 @@ console.log(game);
         let requirements = [];
 
         requirements.push({
-            requirement_id: 1,
+            id: 1,
             value: req.body.placa,
         });
 
         requirements.push({
-            requirement_id: 2,
+            id: 2,
             value: req.body.procesador,
         });
 
         requirements.push({
-            requirement_id: 3,
+            id: 3,
             value: req.body.ram,
         });
 
         requirements.push({
-            requirement_id: 4,
+            id: 4,
             value: req.body.almacenamiento,
         });
 
@@ -118,22 +118,22 @@ console.log(game);
         let requirements = [];
 
         requirements.push({
-            requirement_id: 1,
+            id: 1,
             value: req.body.placa,
         });
 
         requirements.push({
-            requirement_id: 2,
+            id: 2,
             value: req.body.procesador,
         });
 
         requirements.push({
-            requirement_id: 3,
+            id: 3,
             value: req.body.ram,
         });
 
         requirements.push({
-            requirement_id: 4,
+            id: 4,
             value: req.body.almacenamiento,
         });
 

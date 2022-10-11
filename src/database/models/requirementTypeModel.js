@@ -1,6 +1,6 @@
 const path = require('path');
-const requirementTypeModel = require('./base');
+const base = require('./base');
 
-requirementTypeModel.setFilePath(path.join(__dirname, '/../data/tipos_de_requerimientos.json'));
+base.setFilePath(path.join(__dirname, '/../data/tipos_de_requerimientos.json'));
 
-module.exports = requirementTypeModel;
+module.exports = { ...base };

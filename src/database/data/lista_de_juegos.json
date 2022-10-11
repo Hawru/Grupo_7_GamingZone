@@ -1,1 +1,44 @@
-[]
+[
+ {
+  "title": "dsa",
+  "description": "1",
+  "price": "1",
+  "price_d": 0,
+  "discount": "0",
+  "versions": [
+   1,
+   2
+  ],
+  "release_date": "2022-10-11",
+  "primary_image_id": 1665457467694,
+  "requirements": [
+   {
+    "id": 1,
+    "value": "NVIDIA Geforce Gtx 1080ti"
+   },
+   {
+    "id": 2,
+    "value": "Intel Core I3"
+   },
+   {
+    "id": 3,
+    "value": "8GB RAM"
+   },
+   {
+    "id": 4,
+    "value": "10 GB"
+   }
+  ],
+  "scores": [],
+  "plataforms": [
+   4
+  ],
+  "images": [
+   {
+    "id": 1665457467694,
+    "src": "/products/1665457467687.jpeg"
+   }
+  ],
+  "id": 1
+ }
+]
