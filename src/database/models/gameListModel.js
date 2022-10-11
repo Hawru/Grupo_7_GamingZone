@@ -95,7 +95,6 @@ const newBase = {
         .filter(v => v);
 
         let requirements = game.requirements.map(req => {
-console.log(req.id);
             let rq = requirementTypeModel.findById(req.id) || {};
 
             return {

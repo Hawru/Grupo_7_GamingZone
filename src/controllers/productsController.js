@@ -30,7 +30,7 @@ const productsController = {
 
             images.push({
                 id: id,
-                src: '/products/' + req.file.filename,
+                src: 'products/' + req.file.filename,
             });
 
             primary_image_id = id;
@@ -109,7 +109,7 @@ const productsController = {
 
             game.images.push({
                 id: id,
-                src: '/products/' + req.file.filename,
+                src: 'products/' + req.file.filename,
             });
 
             game.primary_image_id = id;
