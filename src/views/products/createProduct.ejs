@@ -25,32 +25,48 @@
                 </div>             
               </div>
               <div class="mb-3">               
-                <label for="primary_image_id" class="form-label">Imagen de portada</label>
-                <input class="form-control" name="primary_image" type="file" id="formFile">
+                <label for="primary_image" class="form-label">Imagen de portada</label>
+                <input class="form-control" name="primary_image" type="file" id="formFile"></input>
               </div>
                 <h4>Requerimientos</h4>
                 <hr>             
               <div class="row">
                 <div class="col-md-6 mb-3">
-                  <label for="requirements_id1" class="form-label">Placa de Video</label>
-                  <input type="text" class="form-control" name="requirements_id1" placeholder="Placa de Video" required>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="requirements_id2" class="form-label">Procesador</label>
-                  <input type="text" class="form-control" name="requirements_id2" placeholder="Procesador" required>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="requirements_id3" class="form-label">Memoria</label>
-                  <select class="form-select" name="requirements_id3">
-                    <option selected>8 GB de RAM</option>
-                    <option value="12 GB de RAM">12 GB de RAM</option>
-                    <option value="16 GB de RAM">16 GB de RAM</option>
-                    <option value="32 GB de RAM">32 GB de RAM</option>
+                  <label for="placa" class="form-label">Placa de Video</label>
+                  <select class="form-select" name="placa" required>
+                    <option value="">Selecciones un elemento</option>
+                    <option value="NVIDIA Geforce Gtx 1080ti">NVIDIA Geforce Gtx 1080ti</option>
+                    <option value="NVIDIA Geforce Gtx 2080ti">NVIDIA Geforce Gtx 2080ti</option>
+                    <option value="NVIDIA Geforce Gtx 3040ti">NVIDIA Geforce Gtx 3040ti</option>
                   </select>
                 </div>
                 <div class="col-md-6 mb-3">
-                  <label for="requirements_id4" class="form-label">Almacenamiento</label>
-                  <input type="text" class="form-control" name="requirements_id4" placeholder="Almacenamientoo" required>
+                  <label for="procesador" class="form-label">Procesador</label>
+                  <select class="form-select" name="procesador" required>
+                    <option value="">Selecciones un elemento</option>
+                    <option value="Intel Core I3">Intel Core I3</option>
+                    <option value="Intel Core I5">Intel Core I5</option>
+                    <option value="Intel Core I7">Intel Core I7</option>
+                  </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="ram" class="form-label">Memoria</label>
+                  <select class="form-select" name="ram">
+                    <option value="">Selecciones un elemento</option>
+                    <option value="8GB RAM">8GB RAM</option>
+                    <option value="12GB RAM">12GB RAM</option>
+                    <option value="16GB RAM">16GB RAM</option>
+                    <option value="32GB RAM">32GB RAM</option>
+                  </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="almacenamiento" class="form-label">Almacenamiento</label>
+                  <select class="form-select" name="almacenamiento" required>
+                    <option value="">Selecciones un elemento</option>
+                    <option value="10 GB">10 GB </option>
+                    <option value="20 GB">20 GB</option>
+                    <option value="30 GB">30 GB</option>
+                  </select>
                 </div>
                 <div class="col-md-12 mb-3">
                   <label class="form-label">Sistema Operativo</label><br>

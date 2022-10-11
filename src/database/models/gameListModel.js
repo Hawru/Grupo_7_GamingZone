@@ -17,11 +17,11 @@ let makeId = (list) => {
     return (tmp[0] || 0) + 1;
 }
 
-const newBase = {
+const gameListModel = {
     ...base,
 
     saveData(list, callback) {
-        fs.writeFile(this.path, JSON.stringify(list), (err) => {
+        fs.writeFile(this.path, JSON.stringify(list, null, " "), (err) => {
             console.log(err);
             if (err) {
                 console.error(err);
@@ -44,6 +44,26 @@ const newBase = {
         };
 
         list.push(game);
+
+        this.setContents(list);
+
+        this.saveData(list, callback);
+    },
+
+    update(id, game, callback) {
+        let list = this.getAll().filter(g => g.id != id);
+
+        game.id = id;
+
+        list.push(game);
+
+        this.setContents(list);
+
+        this.saveData(list, callback);
+    },
+
+    delete(id, callback) {
+        let list = this.getAll().filter(g => g.id != id);
 
         this.setContents(list);
 
@@ -121,4 +141,4 @@ const newBase = {
     },
 };
 
-module.exports = { ...newBase };
+module.exports = gameListModel;
