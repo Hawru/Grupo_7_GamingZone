@@ -1,11 +1,12 @@
 const path = require('path');
+const moment = require('moment');
 const fs = require('fs');
 const GameListModel = require('../database/models/gameListModel');
 
 const productsController = {
     verProducto: (req, res) => {
         let game = GameListModel.findById(req.params.id);
-
+console.log(game);
         if (game) {
             res.render('products/detailProduct', {
                 game: game,
@@ -65,14 +66,18 @@ const productsController = {
 
         plataforms = plataforms.map(b => parseInt(b));
 
+        let release_date = moment().format('YYYY-MM-DD');
+
+        let versions = [1, 2];
+
         GameListModel.create({
             title: req.body.title,
             description: req.body.description,
             price: req.body.price,
             price_d: req.body.price_d || 0,
             discount: req.body.discount || 0,
-            versions: [],
-            release_date: req.body.release_date || null,
+            versions: versions,
+            release_date: release_date,
             primary_image_id: primary_image_id,
             requirements: requirements,
             scores: [],

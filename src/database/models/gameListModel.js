@@ -128,7 +128,7 @@ const gameListModel = {
             pretty_price: (parseFloat(game.price) + 0).toFixed(2).replace('.', ','),
             pretty_price_d: (parseFloat(game.price_d) + 0).toFixed(2).replace('.', ','),
             pretty_discount: (parseFloat(game.discount) + 0).toFixed(2).replace('.', ',') + "%",
-            discount: parseFloat(game.discount),
+            discount: parseFloat(game.discount || 0),
             primary_image_src: primaryImage.src || '',
             release_date: game.release_date,
             is_new: isNew,
