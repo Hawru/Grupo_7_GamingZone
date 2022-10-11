@@ -2,10 +2,10 @@ const path = require('path');
 
 const usersController = {
     userRegister: (req, res) => {
-        res.render('register');
+        res.render('users/register');
     },
     userLogin: (req, res) => {
-        res.render('login');
+        res.render('users/login');
     },
 };
 

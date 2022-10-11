@@ -1,6 +1,6 @@
 const path = require('path');
-const base = require('./base');
+const plataformModel = require('./base');
 
-base.setFilePath(path.join(__dirname, '/../data/plataformas.json'));
+plataformModel.setFilePath(path.join(__dirname, '/../data/plataformas.json'));
 
-module.exports = { ...base };
+module.exports = plataformModel;

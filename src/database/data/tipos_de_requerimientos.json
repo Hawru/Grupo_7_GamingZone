@@ -8,5 +8,15 @@
     "id": 2,
     "name": "cpu",
     "title": "Procesador"
+  },
+  {
+    "id": 3,
+    "name": "memory",
+    "title": "Memoria"
+  },
+  {
+    "id": 4,
+    "name": "disk",
+    "title": "Almacenamiento"
   }
 ]

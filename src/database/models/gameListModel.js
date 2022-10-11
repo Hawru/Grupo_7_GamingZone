@@ -10,37 +10,70 @@ const scoreTypeModel = require('./scoreTypeModel');
 
 base.setFilePath(path.join(__dirname, '/../data/lista_de_juegos.json'));
 
-const newBase = {
+// retorno un ID usando el ultimo existente de la lista
+let makeId = (list) => {
+    let tmp = list.map(j => j.id).sort((a, b) => a - b).reverse();
+
+    return (tmp[0] || 0) + 1;
+}
+
+const gameListModel = {
     ...base,
 
-    saveData() {
-        fs.writeFileSync(this.path, JSON.stringify(this.getContents()));
+    saveData(list, callback) {
+        fs.writeFile(this.path, JSON.stringify(list, null, " "), (err) => {
+            console.log(err);
+            if (err) {
+                console.error(err);
+                throw err;
+            }
+            callback(list);
+        });
     },
 
     setContents(data) {
         this.fileContent = data;
     },
 
-    save(game) {
+    create(game, callback) {
         let list = this.getAll();
 
         game = {
             ...game,
-
-            id: uuidv4(),
+            id: makeId(list),
         };
 
         list.push(game);
 
         this.setContents(list);
 
-        this.saveData();
+        this.saveData(list, callback);
+    },
 
-        return game;
+    update(id, game, callback) {
+        let list = this.getAll().filter(g => g.id != id);
+
+        game.id = id;
+
+        list.push(game);
+
+        this.setContents(list);
+
+        this.saveData(list, callback);
+    },
+
+    delete(id, callback) {
+        let list = this.getAll().filter(g => g.id != id);
+
+        this.setContents(list);
+
+        this.saveData(list, callback);
     },
 
     getAll() {
-        return this.getContents().map(game => this.getResume(game.id));
+        let tmp = this.getContents().map(game => this.getResume(game.id || null)).filter(b => b);
+
+        return tmp;
     },
 
     findById(id) {
@@ -92,9 +125,9 @@ const newBase = {
 
         return {
             ...game,
-            pretty_price: (game.price + 0).toFixed(2).replace('.', ','),
-            pretty_price_d: (game.price_d + 0).toFixed(2).replace('.', ','),
-            pretty_discount: (game.discount + 0).toFixed(2).replace('.', ',') + "%",
+            pretty_price: (parseFloat(game.price) + 0).toFixed(2).replace('.', ','),
+            pretty_price_d: (parseFloat(game.price_d) + 0).toFixed(2).replace('.', ','),
+            pretty_discount: (parseFloat(game.discount) + 0).toFixed(2).replace('.', ',') + "%",
             primary_image_src: primaryImage.src || '',
             release_date: game.release_date,
             is_new: isNew,
@@ -108,4 +141,4 @@ const newBase = {
     },
 };
 
-module.exports = { ...newBase };
+module.exports = gameListModel;

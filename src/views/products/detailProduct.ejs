@@ -56,7 +56,7 @@
                 <button class="btn btn-lg btn-outline-light" type="button"><i class="fa-solid fa-heart"></i> LISTA DE DESEOS</button>
               </div>
             </div>
-           <a href="/products/<%=game.id%>/update" class="text-center d-block">EDITAR INFORMACIÓN</a>
+           <div class="text-center w-100"><a href="/products/<%=game.id%>/update" class="text-center px-3 text-decoration-none text-light"><i class="fa-solid fa-pen-to-square"></i> EDITAR</a> | <form method="POST" action="/products/<%=game.id%>?_method=DELETE" class="d-inline"><button type="submit" class="text-center px-3 text-decoration-none text-light bg-transparent border-0"><i class="fa-solid fa-trash"></i> ELIMINAR</button></form></div>
           </div>
         </div>
         <div class="row" id="product-content">
@@ -64,7 +64,7 @@
 
             <div class="row" id="Descripcion">
               <div class="col-12">
-                <h4 class="mb-4">Descipción</h4>
+                <h4 class="mb-4">Descripcion</h4>
                 <p><%=game.description%></p>
               </div>
             </div>

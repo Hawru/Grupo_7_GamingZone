@@ -1,33 +1,83 @@
 <!doctype html>
 <html lang="en">
-    <%- include('../partials/head', {title: 'Gaming Zone - Update Product'}) %>
+    <%- include('../partials/head', {title: 'Gaming Zone - Create Product'}) %>
     <body>  
       <%- include('../partials/header') %>
       <main id="bg-update-product" class="d-flex align-items-center p-4">
         <div class="container">
-          <div class="row justify-content-center text-center py-3">
-            <form class="col-lg-6 rounded-4 p-4  shadow bg-dark" id="create-form">
-              <h2 class="mt-0 mb-4">Actualizar producto</h2>
+          <div class="row justify-content-center py-3">
+            <form method="POST" action="/products/<%=game.id%>/update?_method=PUT" class="col-lg-6 rounded-4 p-4 shadow bg-dark" id="edit-form" enctype="multipart/form-data">
+              <h2 class="mt-0 mb-4 text-center">Actualizar producto</h2>
+              <h4>Información General</h4>
+              <hr>  
               <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Nombre de producto" required>
+                <input type="text" class="form-control" name="title" placeholder="Nombre de producto" value="<%= game.title %>" required>
               </div>
               <div class="input-group mb-3">
-                <textarea class="form-control" placeholder="Descripción" rows="3" required></textarea>
+                <textarea class="form-control" name="description" placeholder="Descripción" rows="3" required><%= game.description %></textarea>
               </div>
               <div class="row">
-                <div class="col-md-6 mb-3">
-                  <input type="text" class="form-control" placeholder="Precio" required>
+                <div class="col-6 mb-3">
+                  <input type="text" class="form-control" name="price" placeholder="Precio" value="<%= game.price %>" required>
                 </div>
-                <div class="col-md-6 mb-3">
-                  <input type="text" class="form-control" placeholder="Descuento" required>
+                <div class="col-6 mb-3">
+                  <input type="text" class="form-control" name="discount" placeholder="Descuento" value="<%= game.discount %>" required>
                 </div>             
               </div>
-              <div class="mb-3">
-                <label for="formFile" class="form-label">Elegir Imagen</label>
-                <input class="form-control" type="file" id="formFile">
+              <div class="mb-3">               
+                <label for="primary_image" class="form-label">Imagen de portada</label>
+                <input class="form-control" name="primary_image" type="file" id="formFile"></input>
+              </div>
+                <h4>Requerimientos</h4>
+                <hr>             
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="placa" class="form-label">Placa de Video</label>
+                  <select class="form-select" name="placa" required>
+                    <option value="">Selecciones un elemento</option>
+                    <option value="NVIDIA Geforce Gtx 1080ti">NVIDIA Geforce Gtx 1080ti</option>
+                    <option value="NVIDIA Geforce Gtx 2080ti">NVIDIA Geforce Gtx 2080ti</option>
+                    <option value="NVIDIA Geforce Gtx 3040ti">NVIDIA Geforce Gtx 3040ti</option>
+                  </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="procesador" class="form-label">Procesador</label>
+                  <select class="form-select" name="procesador" required>
+                    <option value="">Selecciones un elemento</option>
+                    <option value="Intel Core I3">Intel Core I3</option>
+                    <option value="Intel Core I5">Intel Core I5</option>
+                    <option value="Intel Core I7">Intel Core I7</option>
+                  </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="ram" class="form-label">Memoria</label>
+                  <select class="form-select" name="ram">
+                    <option value="">Selecciones un elemento</option>
+                    <option value="8GB RAM">8GB RAM</option>
+                    <option value="12GB RAM">12GB RAM</option>
+                    <option value="16GB RAM">16GB RAM</option>
+                    <option value="32GB RAM">32GB RAM</option>
+                  </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="almacenamiento" class="form-label">Almacenamiento</label>
+                  <select class="form-select" name="almacenamiento" required>
+                    <option value="">Selecciones un elemento</option>
+                    <option value="10 GB">10 GB </option>
+                    <option value="20 GB">20 GB</option>
+                    <option value="30 GB">30 GB</option>
+                  </select>
+                </div>
+                <div class="col-md-12 mb-3">
+                  <label class="form-label">Sistema Operativo</label><br>
+                  <input type="checkbox" name="plataforms" id="cbox1" value="3" class="me-2"><label for="cbox1" class="me-2"> Windows</label>
+                  <input type="checkbox" name="plataforms" id="cbox2" value="4" class="me-2"><label for="cbox2" class="me-2"> MacOs</label>
+                  <input type="checkbox" name="plataforms" id="cbox3" value="2" class="me-2"><label for="cbox3" class="me-2"> PlayStation</label>
+                  <input type="checkbox" name="plataforms" id="cbox4" value="1" class="me-2"><label for="cbox4" class="me-2"> Xbox</label>
+                </div>
               </div>
               <div class="d-grid gap-2">
-                <button class="btn btn-lg btn-primary mb-2" type="button">Crear</button>
+                <input class="btn btn-lg btn-primary mb-2" type="submit" value="Actualizar">
               </div>
             </form>
           </div>    
