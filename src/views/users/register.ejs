@@ -6,13 +6,19 @@
     <main id="bg-register" class="d-flex align-items-center p-4">
       <div class="container">
         <div class="row justify-content-center">
-          <form class="col-md-5 col-lg-4 rounded-3 p-4 shadow bg-dark" id="register-form" enctype="multipart/form-data">
+          <form method="POST" class="col-md-5 col-lg-4 rounded-3 p-4 shadow bg-dark" id="register-form" enctype="multipart/form-data">
             <h2 class="mt-0 mb-4 text-center">Registrate</h2>
             <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Nombre de usuario">
+              <input type="text" class="form-control" name="username" placeholder="Nombre de usuario" value="<%= locals.old && old.username %>">
+              <% if (locals.errors && errors.username) { %>
+                <p class="feedback d-block"><%= errors.username %></p>
+              <% } %>
             </div>
             <div class="input-group mb-3">
-              <input type="email" class="form-control" placeholder="Correo electrónico">
+              <input type="email" class="form-control" name="email" placeholder="Correo electrónico" value="<%= locals.old && old.email %>">
+              <% if (locals.errors && errors.email) { %>
+                <p class="feedback d-block"><%= errors.email %></p>
+              <% } %>
             </div>
             <div class="mb-3">               
               <label for="profile_image" class="form-label">Imagen de perfil</label>
@@ -20,14 +26,17 @@
             </div>
             <div class="row">
               <div class="col-md-6 mb-3">
-                <input type="password" class="form-control rounded" placeholder="Contraseña">
+                <input type="password" name="password" class="form-control rounded" placeholder="Contraseña">
+                <% if (locals.errors && errors.password) { %>
+                  <p class="feedback d-block"><%= errors.password %></p>
+                <% } %>
               </div>
               <div class="col-md-6 mb-3">
                 <input type="password" class="form-control rounded" placeholder="Repetir Contraseña">
               </div>              
             </div>
             <div class="d-grid gap-2">
-              <button class="btn btn-lg btn-primary" type="button">Registrarme</button>
+              <button class="btn btn-lg btn-primary" type="submit">Registrarme</button>
             </div>
             <p class="mt-3 mb-0 text-center">o registrate con tu cuenta de</p>
             <div class="container text-center redes-sociales py-3">
