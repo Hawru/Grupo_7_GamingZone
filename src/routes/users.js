@@ -5,6 +5,13 @@ const router = express.Router();
 const multer = require('multer');
 const { body }  = require('express-validator');
 
+//Validacion Formulares
+const validacionRegistro = [
+    body('username').notEmpty().withMessage('Ingrese un nombre de usuario'),
+    body('email').notEmpty().withMessage('Campo obligatorio').isEmail().withMessage('Ingresa un correo válido'),
+    body('password').notEmpty().withMessage('Campo obligatorio').isLength({min:5, max:10}).withMessage('La contraseña debe contener entre 5 y 10 caractéres.')
+]
+
 //Configuración Multer
 const storageProfileImage = multer.diskStorage({
     destination: function(req, file, cb) {       // request, archivo y callback que almacena archivo en destino
@@ -17,13 +24,6 @@ const storageProfileImage = multer.diskStorage({
 });
 
 const uploadProfileImage = multer({ storage: storageProfileImage });
-
-//Validacion Formulares
-let validacionRegistro = [
-    body('username').notEmpty().withMessage('Ingrese un nombre de usuario'),
-    body('email').notEmpty().withMessage('Campo obligatorio').isEmail().withMessage('Ingresa un correo válido'),
-    body('password').notEmpty().withMessage('Campo obligatorio').isLength({min:5, max:10}).withMessage('La contraseña debe contener entre 5 y 10 caractéres.')
-]
 
 //routes
 router.get('/register', usersController.register);
