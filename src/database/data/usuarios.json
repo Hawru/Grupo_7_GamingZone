@@ -1,9 +1,9 @@
 [
     {
         "id": 1,
-        "name": "Juan",
-        "lastname": "Perez",
         "username": "jperez",
+        "email": "jperez@gmail.com",
+        "profile_image_src": "",
         "password": "Ab123456"
     }
 ]
