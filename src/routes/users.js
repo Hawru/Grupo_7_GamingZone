@@ -20,9 +20,9 @@ const uploadProfileImage = multer({ storage: storageProfileImage });
 
 //Validacion Formulares
 let validacionRegistro = [
-    body('username').notEmpty().withMessage('Campo obligatorio'),
+    body('username').notEmpty().withMessage('Ingrese un nombre de usuario'),
     body('email').notEmpty().withMessage('Campo obligatorio').isEmail().withMessage('Ingresa un correo válido'),
-    body('password').notEmpty().withMessage('Campo obligatorio').isLength({min:5, max:10}).withMessage('La contraseña debe contener entre 5 y 10 caractéres.'),
+    body('password').notEmpty().withMessage('Campo obligatorio').isLength({min:5, max:10}).withMessage('La contraseña debe contener entre 5 y 10 caractéres.')
 ]
 
 //routes

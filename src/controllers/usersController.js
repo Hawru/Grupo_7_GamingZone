@@ -9,7 +9,7 @@ const usersController = {
         res.render('users/register');
     },
     userRegister: (req, res) => {
-        let errors = validationResult(req);
+        const errors = validationResult(req);
         if(errors.isEmpty()){
             let userData = req.body;
             let idNewUser = (users[users.length-1].id)+1;
@@ -21,13 +21,12 @@ const usersController = {
                 "email": userData.email,
                 "password": userData.password,
                 "profile_image": profile_image
-            };
-    
+            };    
             users.push(newUser);
-            fs.writeFileSync(juegosFilePath,JSON.stringify(users, null, " "),'utf-8');
+            fs.writeFileSync(usersFilePath,JSON.stringify(users, null, " "),'utf-8');
             res.redirect('/');
         } else {
-            res.render('users/register', {errors: errors.mapped(), old:req.body});
+            res.render('users/register', { errors: errors.array(), old: req.body});
         }
     },
     login: (req, res) => {

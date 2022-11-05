@@ -1,9 +1,16 @@
 [
-    {
-        "id": 1,
-        "username": "jperez",
-        "email": "jperez@gmail.com",
-        "profile_image_src": "",
-        "password": "Ab123456"
-    }
+ {
+  "id": 1,
+  "username": "jperez",
+  "email": "jperez@gmail.com",
+  "profile_image_src": "",
+  "password": "Ab123456"
+ },
+ {
+  "id": 2,
+  "username": "santiagom86",
+  "email": "santiagomartinez86@gmail.com",
+  "password": "121212",
+  "profile_image": "users/1667672283992.webp"
+ }
 ]
