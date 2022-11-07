@@ -155,7 +155,7 @@ ul#social-links li a{
 
 /* REGISTER & LOGIN & CREATE*/
 
-#bg-login, #bg-register, #bg-create-product, #bg-update-product{
+#bg-login, #bg-register, #bg-create-product, #bg-update-product, #bg-profile{
     background-position: center center;
     background-size: cover;
 	min-height: 550px;
@@ -163,6 +163,9 @@ ul#social-links li a{
 
 #bg-create-product{
 	background-image: url(../images/egs-en-genshin-impact-2-8-breaker-1248x702-9bc4c4d899b7.jpeg);
+}
+#bg-profile{
+	background-image: url(../images/egs-fall-guys-doom-breaker-1920x1080-645d17d65bc9.jpeg);
 }
 #bg-login{
     background-image: url(../images/original.jpeg);
@@ -262,6 +265,17 @@ form hr, #cart-resume hr{
 
 body.products #product-slider .mini-imgs img {
 	max-height: 100px;
+}
+
+/* PROFILE IMG */
+
+.img-profile{
+	background-position: center center;
+    background-size: cover;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+
 }
 
 /* Small devices (landscape phones, 576px and up) */

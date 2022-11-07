@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 const methodOverride = require('method-override');
 const PORT = process.env.PORT || 3000
-
+const session = require('express-session');
 //Carpeta Public
 app.use(express.static('./public'));
 
@@ -15,7 +15,13 @@ app.set('view engine', 'ejs');
 app.listen(PORT, () => console.log('server corriendo en puerto 3000'));
 
 //Configuro methodOverride
+app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
+app.use(session({
+    secret: 'a Secret',
+    resave: false,
+    saveUninitialized: true,
+  }, ))
 
 //Routes
 app.use('/', require('./routes/index.routes'));
