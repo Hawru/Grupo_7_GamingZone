@@ -13,7 +13,11 @@ const usersController = {
         const errors = validationResult(req);
         if(errors.isEmpty()){
             let userData = req.body;
-            let idNewUser = (users[users.length-1].id)+1;
+            if(users == []){
+                idNewUser = 1;
+            }else{
+                idNewUser = (users[users.length-1].id)+1;
+            };
             let profile_image = "users/" + req.file.filename;
             let passwordHash = bcrypt.hashSync(req.body.password, 10);
     
