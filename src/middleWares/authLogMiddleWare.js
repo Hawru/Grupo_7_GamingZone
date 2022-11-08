@@ -1,6 +1,6 @@
 function authLogMiddleWare(req, res, next){
     if(!req.session.user){
-        return res.render('login', {auth: 'No puedes entrar a esta parte'})
+        return res.render('users/login')
     } 
     next();
 }
