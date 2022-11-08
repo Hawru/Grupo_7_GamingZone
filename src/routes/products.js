@@ -3,6 +3,7 @@ const path = require('path');
 const router = express.Router();
 const productsController = require('../controllers/productsController');
 const multer = require('multer');
+const authLogMiddleWare = require('../middleWares/authLogMiddleWare');
 
 //Configuración Multer
 const multerDiskStorage = multer.diskStorage({
@@ -19,11 +20,11 @@ const uploadFile = multer({ storage: multerDiskStorage });
 
 //routes
 router.get('/list', productsController.listaProducto)
-router.get('/create', productsController.crearProducto)
+router.get('/create', authLogMiddleWare, productsController.crearProducto)
 router.post('/create', uploadFile.single('primary_image'), productsController.almacenarProducto)
 router.get('/:id', productsController.verProducto);
 router.delete('/:id', productsController.eliminarProducto)
-router.get('/:id/update', productsController.actualizarProducto)
+router.get('/:id/update', authLogMiddleWare, productsController.actualizarProducto)
 router.put('/:id/update', uploadFile.single('primary_image'), productsController.guardarProducto)
 
 module.exports = router;

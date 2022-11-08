@@ -4,8 +4,8 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const { body }  = require('express-validator');
-const authLogMiddleWare = require('../middleWares/authLogMiddleWare')
-const authGuestMiddleWare = require('../middleWares/authGuestMiddleWare')
+const authLogMiddleWare = require('../middleWares/authLogMiddleWare');
+const authGuestMiddleWare = require('../middleWares/authGuestMiddleWare');
 
 //Validacion Formulares
 const validacionRegistro = [
