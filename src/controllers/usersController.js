@@ -12,8 +12,10 @@ const usersController = {
     userRegister: (req, res) => {
         const errors = validationResult(req);
         if(errors.isEmpty()){
+            let idNewUser;
             let userData = req.body;
-            if(users == []){
+            console.log(users)
+            if(users == false){
                 idNewUser = 1;
             }else{
                 idNewUser = (users[users.length-1].id)+1;
