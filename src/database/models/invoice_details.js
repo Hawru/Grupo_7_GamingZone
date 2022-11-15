@@ -1,36 +1,35 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('users', {
+  return sequelize.define('invoice_details', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
       primaryKey: true
     },
-    name: {
-      type: DataTypes.STRING(60),
-      allowNull: false
-    },
-    email: {
-      type: DataTypes.STRING(255),
-      allowNull: false,
-      unique: "email_UNIQUE"
-    },
-    password: {
-      type: DataTypes.STRING(120),
-      allowNull: false
-    },
-    user_type_id: {
-      type: DataTypes.TINYINT.UNSIGNED,
+    sale_id: {
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: true,
       references: {
-        model: 'user_types',
+        model: 'sales',
+        key: 'id'
+      }
+    },
+    price: {
+      type: DataTypes.DECIMAL(10,0),
+      allowNull: true
+    },
+    invoice_id: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      allowNull: true,
+      references: {
+        model: 'invoices',
         key: 'id'
       }
     }
   }, {
     sequelize,
-    tableName: 'users',
+    tableName: 'invoice_details',
     timestamps: false,
     indexes: [
       {
@@ -42,18 +41,17 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "email_UNIQUE",
-        unique: true,
+        name: "fk_invoice_details_1_idx",
         using: "BTREE",
         fields: [
-          { name: "email" },
+          { name: "sale_id" },
         ]
       },
       {
-        name: "fk_users_1_idx",
+        name: "fk_invoice_details_2_idx",
         using: "BTREE",
         fields: [
-          { name: "user_type_id" },
+          { name: "invoice_id" },
         ]
       },
     ]

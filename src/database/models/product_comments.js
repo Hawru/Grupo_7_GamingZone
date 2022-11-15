@@ -1,36 +1,35 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('users', {
+  return sequelize.define('product_comments', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
       primaryKey: true
     },
-    name: {
-      type: DataTypes.STRING(60),
-      allowNull: false
-    },
-    email: {
-      type: DataTypes.STRING(255),
+    product_id: {
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      unique: "email_UNIQUE"
-    },
-    password: {
-      type: DataTypes.STRING(120),
-      allowNull: false
-    },
-    user_type_id: {
-      type: DataTypes.TINYINT.UNSIGNED,
-      allowNull: true,
       references: {
-        model: 'user_types',
+        model: 'products',
         key: 'id'
       }
+    },
+    user_id: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      allowNull: false,
+      references: {
+        model: 'users',
+        key: 'id'
+      }
+    },
+    comment: {
+      type: DataTypes.TEXT,
+      allowNull: false
     }
   }, {
     sequelize,
-    tableName: 'users',
+    tableName: 'product_comments',
     timestamps: false,
     indexes: [
       {
@@ -42,18 +41,17 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "email_UNIQUE",
-        unique: true,
+        name: "fk_product_comments_1_idx",
         using: "BTREE",
         fields: [
-          { name: "email" },
+          { name: "product_id" },
         ]
       },
       {
-        name: "fk_users_1_idx",
+        name: "fk_product_comments_2_idx",
         using: "BTREE",
         fields: [
-          { name: "user_type_id" },
+          { name: "user_id" },
         ]
       },
     ]

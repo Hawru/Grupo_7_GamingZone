@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('users', {
+  return sequelize.define('products', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER.UNSIGNED,
@@ -8,29 +8,33 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true
     },
     name: {
-      type: DataTypes.STRING(60),
-      allowNull: false
-    },
-    email: {
-      type: DataTypes.STRING(255),
+      type: DataTypes.STRING(120),
       allowNull: false,
-      unique: "email_UNIQUE"
+      unique: "name_UNIQUE"
     },
-    password: {
+    title: {
       type: DataTypes.STRING(120),
       allowNull: false
     },
-    user_type_id: {
-      type: DataTypes.TINYINT.UNSIGNED,
-      allowNull: true,
-      references: {
-        model: 'user_types',
-        key: 'id'
-      }
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
+    price: {
+      type: DataTypes.DECIMAL(10,0),
+      allowNull: false
+    },
+    discount: {
+      type: DataTypes.DECIMAL(10,0),
+      allowNull: false
+    },
+    primary_image_id: {
+      type: DataTypes.INTEGER.UNSIGNED,
+      allowNull: false
     }
   }, {
     sequelize,
-    tableName: 'users',
+    tableName: 'products',
     timestamps: false,
     indexes: [
       {
@@ -42,18 +46,11 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "email_UNIQUE",
+        name: "name_UNIQUE",
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "email" },
-        ]
-      },
-      {
-        name: "fk_users_1_idx",
-        using: "BTREE",
-        fields: [
-          { name: "user_type_id" },
+          { name: "name" },
         ]
       },
     ]

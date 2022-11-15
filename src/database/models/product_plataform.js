@@ -1,36 +1,31 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('users', {
+  return sequelize.define('product_plataform', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
       primaryKey: true
     },
-    name: {
-      type: DataTypes.STRING(60),
-      allowNull: false
-    },
-    email: {
-      type: DataTypes.STRING(255),
+    product_id: {
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
-      unique: "email_UNIQUE"
-    },
-    password: {
-      type: DataTypes.STRING(120),
-      allowNull: false
-    },
-    user_type_id: {
-      type: DataTypes.TINYINT.UNSIGNED,
-      allowNull: true,
       references: {
-        model: 'user_types',
+        model: 'products',
+        key: 'id'
+      }
+    },
+    plataform_type_id: {
+      type: DataTypes.TINYINT.UNSIGNED,
+      allowNull: false,
+      references: {
+        model: 'plataforms',
         key: 'id'
       }
     }
   }, {
     sequelize,
-    tableName: 'users',
+    tableName: 'product_plataform',
     timestamps: false,
     indexes: [
       {
@@ -42,18 +37,25 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "email_UNIQUE",
-        unique: true,
+        name: "fk_product_plataform_1_idx",
         using: "BTREE",
         fields: [
-          { name: "email" },
+          { name: "product_id" },
         ]
       },
       {
-        name: "fk_users_1_idx",
+        name: "fk_product_plataform_2_idx",
         using: "BTREE",
         fields: [
-          { name: "user_type_id" },
+          { name: "plataform_type_id" },
+        ]
+      },
+      {
+        name: "UQ_product_plataform_1",
+        using: "BTREE",
+        fields: [
+          { name: "product_id" },
+          { name: "plataform_type_id" },
         ]
       },
     ]
