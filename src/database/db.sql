@@ -1,8 +1,8 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-CREATE DATABASE IF NOT EXISTS `games` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `games`;
+CREATE DATABASE IF NOT EXISTS `equipo7_store` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `equipo7_store`;
 
 CREATE TABLE `invoices` (
   `id` int(10) UNSIGNED NOT NULL,
@@ -92,10 +92,11 @@ CREATE TABLE `score_types` (
 
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `username` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
-  `user_type_id` tinyint(3) UNSIGNED DEFAULT NULL
+  `user_type_id` tinyint(3) UNSIGNED DEFAULT NULL,
+  `profile_image_path` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `user_types` (
