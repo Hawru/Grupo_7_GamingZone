@@ -20,9 +20,9 @@
               </div>
               <h4><%= game[i].title %></h4>
               <% if (game[i].discount > 0) { %>
-              <p><s class="text-muted"><%=game[i].pretty_price%>USD</s> <%=game[i].pretty_price_d%>USD</p>
+              <p><s class="text-muted"><%=game[i].price%>USD</s> <%= (game[i].price / 100) * (100 - game[i].discount) %>USD</p>
               <%} else {%>
-              <p><%= game[i].pretty_price %> USD</p>
+              <p><%= game[i].price %> USD</p>
               <%}%>
               
             </article>
