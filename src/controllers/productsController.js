@@ -5,15 +5,16 @@ const GameListModel = require('../database/models/gameListModel');
 
 const productsController = {
     verProducto: (req, res) => {
-        let game = GameListModel.findById(req.params.id);
-
-        if (game) {
-            res.render('products/detailProduct', {
-                game: game,
-            });
-        } else {
-            res.render('404');
-        }
+        models.initModels().then(models => {
+            models.products
+                .findByPk(req.params.id)
+                .then(game => {
+                    res.render('products/detailProduct', {game: game,})  
+                })
+                .catch(e => {
+                    res.render('404');
+                });
+        });
     },
     // Form de crear producto
     crearProducto: (req, res) => {
@@ -170,17 +171,16 @@ const productsController = {
         }
     },
     listaProducto: (req, res) => {
-        let game = GameListModel.getAll()
-            .map(game => GameListModel.getResume(game.id || null))
-            .filter(b => b);
-
-        if (game.length) {
-            res.render('products/listProduct', {
-                game: game,
-            });
-        } else {
-            res.render('404');
-        }
+        models.initModels().then(models => {
+            models.products
+                .findAll()
+                .then(game => {
+                    res.render('products/listProduct', {game: game});
+                })
+                .catch(e => {
+                    res.render('404');
+                });
+        });
     },
 };
 
