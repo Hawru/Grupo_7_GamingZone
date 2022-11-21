@@ -10,11 +10,13 @@
               <h1 class="fs-2"><span class="badge bg-primary"><%=game.score_avg%> <i class="fa-solid fa-star"></i></span> <%=game.title%></h1>
           </div>
           <div class="col">
+            <% if (game.plataforms) { %>
             <ul class="d-flex justify-content-end list-unstyled" id="platforms">
               <% for (let i = 0; i < game.plataforms.length;i++) {%>
                 <li class="fs-3 me-2"><i class="<%=game.plataforms[i].icon%>"></i></li>
               <% } %>
             </ul>
+            <% } %>
           </div>
         </div>
         <div class="row">
@@ -26,7 +28,7 @@
                   <div class="play-button position-absolute shadow-lg d-flex align-items-center justify-content-center"><i class="fa-solid fa-play fs-2"></i></div>
                 </div>
               </div>
-              <% if (game.images.length) { %>
+              <% if (game.images) { %>
               <div class="row g-3 mini-imgs">
                 <% for (let i = 0; i < game.images.length;i++) {%>
                 <div class="col"><img src="/images/<%=game.images[i].src%>" class="img-fluid rounded"></div>
@@ -38,7 +40,7 @@
           <div class="col-md-4">
             <div id="product-resume" class="bg-primary-dark p-4 rounded mb-5 text-center">
               <h5>Seleccionar Versión</h5>
-              <% if (game.versions.length) { %>
+              <% if (game.versions) { %>
               <div class="btn-group btn-group-lg w-100" role="group">
                 <% for (let i = 0; i < game.versions.length;i++) {%>
                 <button type="button" class="btn btn-outline-secondary"><%=game.versions[i].title%></button>
@@ -47,9 +49,11 @@
               <% } %>
               <p class="fw-bold fs-4 my-4">
                 <% if(game.discount) { %>
-                <span class="text-muted fw-normal text-decoration-line-through"><%=game.pretty_price%> USD</span>
+                <span class="text-muted fw-normal text-decoration-line-through"><%=game.price%> USD</span>
+                <span><%= (game.price / 100) * (100 - game.discount) %> USD</span>
+                <%} else {%>
+                <span><%= game.price %> USD</span>
                 <% } %>
-                <span><%=game.discount ? game.pretty_price_d : game.pretty_price%> USD</span>
               </p>
               <div class="d-grid gap-2">
                 <button class="btn btn-lg btn-primary" type="button"><i class="fa-solid fa-cart-plus"></i> AÑADIR AL CARRITO</button>
@@ -69,7 +73,7 @@
               </div>
             </div>
 
-            <% if (game.scores.length) { %>
+            <% if (game.scores) { %>
             <div class="row my-4" id="Puntuaciones">
               <div class="col-12">
                 <h4 class="mb-4">Puntuaciones</h4>
@@ -89,7 +93,7 @@
             </div>
             <% } %>
 
-            <% if (game.requirements.length) { %>
+            <% if (game.requirements) { %>
             <div class="row my-4" id="requirements">
               <div class="col-12">
                 <h4 class="mb-4">Requerimientos</h4>
