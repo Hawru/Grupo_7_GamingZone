@@ -30,7 +30,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     primary_image_id: {
       type: DataTypes.INTEGER.UNSIGNED,
-      allowNull: false
+      allowNull: true
     }
   }, {
     sequelize,

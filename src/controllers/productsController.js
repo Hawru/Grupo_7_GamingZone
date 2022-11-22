@@ -2,6 +2,7 @@ const path = require('path');
 const moment = require('moment');
 const fs = require('fs');
 const GameListModel = require('../database/models/gameListModel');
+let models = require('../database/models1/index.js');
 
 const productsController = {
     verProducto: (req, res) => {
@@ -22,7 +23,40 @@ const productsController = {
     },
      // Acción de crear producto
     almacenarProducto: (req, res) => {
-        let images = [];
+        let name = (req.body.title).toLowerCase().replace(/\s/g, '');
+        let newProduct = {
+            name: name,
+            title: req.body.title,
+            description: req.body.description,
+            price: parseInt(req.body.price),
+            discount: parseInt(req.body.discount),
+        }
+        
+
+
+            models.initModels().then(models => {
+                models.products
+                    .create(newProduct)
+                    .then(product => {
+                        let id = product.dataValues.id;
+                        let newImagesProduct = {
+                            name: name,
+                            path: req.file.filename,
+                            product_id: id
+                        }
+                        models.product_images
+                            .create(newImagesProduct)
+                            .then(images => {
+                                console.log(images)
+                            })
+                    })
+                    .catch(e => {
+                        console.error(e);
+                    });
+            });
+
+        console.log(newProduct)
+        /*let images = [];
         let primary_image_id = null;
 
         if (req.file) {
@@ -87,6 +121,7 @@ const productsController = {
         }, (list) => {
             res.render('products/successProduct');
         });
+        */
     },
     // Form de actualizar producto
     actualizarProducto: (req, res) => {
