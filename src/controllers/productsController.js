@@ -1,69 +1,73 @@
-const path = require('path');
 const moment = require('moment');
-const fs = require('fs');
 const GameListModel = require('../database/models/gameListModel');
-let models = require('../database/models1/index.js');
+
+let {
+    initModels,
+    sequelize,
+} = require('../database/models1/index.js');
+
+let productService = require('../services/products.js');
 
 const productsController = {
-    verProducto: (req, res) => {
-        models.initModels().then(models => {
-            models.products
-                .findByPk(req.params.id)
-                .then(game => {
-                    res.render('products/detailProduct', {game: game,})  
-                })
-                .catch(e => {
-                    res.render('404');
-                });
-        });
+    verProducto: async (req, res) => {
+        let models = await initModels();
+
+        try {
+            let product = await models.products.findByPk(req.params.id);
+
+            res.render('products/detailProduct', {
+                game: product,
+            });
+        } catch(e) {
+            res.render('404');
+        };
     },
     // Form de crear producto
     crearProducto: (req, res) => {
         res.render('products/createProduct');
     },
      // Acción de crear producto
-    almacenarProducto: (req, res) => {
-        let name = (req.body.title).toLowerCase().replace(/\s/g, '');
-        let newProduct = {
-            name: name,
-            title: req.body.title,
-            description: req.body.description,
-            price: parseInt(req.body.price),
-            discount: parseInt(req.body.discount),
-        }
-        
+    almacenarProducto: async (req, res) => {
+        // iniciamos la transaccion
+        let t = await sequelize.transaction();
 
+        let models = await initModels();
 
-            models.initModels().then(models => {
-                models.products
-                    .create(newProduct)
-                    .then(product => {
-                        let id = product.dataValues.id;
-                        let newImagesProduct = {
-                            name: name,
-                            path: req.file.filename,
-                            product_id: id
-                        }
-                        models.product_images
-                            .create(newImagesProduct)
-                            .then(images => {
-                                let imageId = { 
-                                    primary_image_id: images.dataValues.id
-                                }
-                                models.products
-                                    .update(imageId, {
-                                        where: {
-                                            id: product.dataValues.id
-                                        }
-                                    } )
-                            })
-                    })
-                    .catch(e => {
-                        console.error(e);
-                    });
+        try {
+
+            let name = (req.body.title).toLowerCase().replace(/\s/g, '');
+
+            let product = await models.products.create({
+                name: name,
+                title: req.body.title,
+                description: req.body.description,
+                price: parseInt(req.body.price),
+                discount: parseInt(req.body.discount),
             });
 
-        console.log(newProduct)
+            // si se envia una imagen la agregamos
+            if (req.file) {
+                let image = await models.product_images.create({
+                    name: name,
+                    path: req.file.filename,
+                    product_id: product.dataValues.id
+                });
+
+                await product.update({
+                    primary_image_id: image.dataValues.id
+                });
+            }
+
+            await productService.createDefaultRequirement(product.dataValues.id);
+
+            // confirmamos los cambios
+            await t.commit();
+        } catch (e) {
+            // si algo fallo borramos los cambios de la DB
+            await t.rollback();
+            throw e;
+        }
+
         /*let images = [];
         let primary_image_id = null;
 
@@ -213,17 +217,19 @@ const productsController = {
             res.render('404');
         }
     },
-    listaProducto: (req, res) => {
-        models.initModels().then(models => {
-            models.products
-                .findAll()
-                .then(game => {
-                    res.render('products/listProduct', {game: game});
-                })
-                .catch(e => {
-                    res.render('404');
-                });
-        });
+    listaProducto: async (req, res) => {
+        let models = await initModels();
+
+        try {
+            let products = await models.products.findAll();
+
+            res.render('products/listProduct', {
+                game: products,
+            });
+
+        } catch(e) {
+            res.render('404');
+        };
     },
 };
 

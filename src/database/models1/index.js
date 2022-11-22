@@ -23,5 +23,6 @@ function initModelsPromise() {
 }
 
 module.exports = {
-  initModels: initModelsPromise
+  initModels: initModelsPromise,
+  sequelize: sequelize,
 }

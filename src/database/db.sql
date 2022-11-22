@@ -1,6 +1,12 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
 CREATE DATABASE IF NOT EXISTS `equipo7_store` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 USE `equipo7_store`;
 
@@ -30,7 +36,7 @@ CREATE TABLE `products` (
   `description` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `price` decimal(10,0) NOT NULL,
   `discount` decimal(10,0) NOT NULL,
-  `primary_image_id` int(10) UNSIGNED NOT NULL
+  `primary_image_id` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `product_comments` (
@@ -63,7 +69,8 @@ CREATE TABLE `product_requirement` (
 CREATE TABLE `product_score` (
   `id` int(10) UNSIGNED NOT NULL,
   `product_id` int(10) UNSIGNED NOT NULL,
-  `score_type_id` tinyint(3) UNSIGNED NOT NULL
+  `score_type_id` tinyint(3) UNSIGNED NOT NULL,
+  `value` tinyint(3) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `product_version` (
@@ -96,7 +103,7 @@ CREATE TABLE `users` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
   `user_type_id` tinyint(3) UNSIGNED DEFAULT NULL,
-  `profile_image_path` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+  `profile_path` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `user_types` (
@@ -124,7 +131,8 @@ ALTER TABLE `plataforms`
 
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name_UNIQUE` (`name`);
+  ADD UNIQUE KEY `name_UNIQUE` (`name`),
+  ADD KEY `fk_products_1_idx` (`primary_image_id`);
 
 ALTER TABLE `product_comments`
   ADD PRIMARY KEY (`id`),
@@ -235,6 +243,9 @@ ALTER TABLE `invoice_details`
   ADD CONSTRAINT `fk_invoice_details_1` FOREIGN KEY (`sale_id`) REFERENCES `sales` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_invoice_details_2` FOREIGN KEY (`invoice_id`) REFERENCES `invoices` (`id`) ON UPDATE CASCADE;
 
+ALTER TABLE `products`
+  ADD CONSTRAINT `fk_products_1` FOREIGN KEY (`primary_image_id`) REFERENCES `product_images` (`id`) ON UPDATE CASCADE;
+
 ALTER TABLE `product_comments`
   ADD CONSTRAINT `fk_product_comments_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_product_comments_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE;
@@ -265,3 +276,7 @@ ALTER TABLE `sales`
 ALTER TABLE `users`
   ADD CONSTRAINT `fk_users_1` FOREIGN KEY (`user_type_id`) REFERENCES `user_types` (`id`) ON UPDATE CASCADE;
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
