@@ -47,7 +47,15 @@ const productsController = {
                         models.product_images
                             .create(newImagesProduct)
                             .then(images => {
-                                console.log(images)
+                                let imageId = { 
+                                    primary_image_id: images.dataValues.id
+                                }
+                                models.products
+                                    .update(imageId, {
+                                        where: {
+                                            id: product.dataValues.id
+                                        }
+                                    } )
                             })
                     })
                     .catch(e => {
