@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <%- include('./partials/head', {title: 'Gaming Zone - Error 500'}) %>
+  <body>
+    <main>
+      <div class="container text-center py-5 vh-100">
+        <div class="row h-100 justify-content-center align-items-center">
+          <div class="col-md-6">
+            <img src="/images/403.png" class="w-50">
+            <h1 style="font-size:3rem" class="mb-1">403 - Acceso denegado</h1>
+            <h4 class="mb-3">No tienes permiso para acceder a esta página</h4>
+            <a href="/" type="button" class="btn btn-primary btn-lg">Volver al inicio</a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <%- include('./partials/scripts') %>
+  </body>
+</html>
