@@ -52,4 +52,9 @@ router.get(
     usersController.profile
 );
 
+router.get(
+    '/logout',
+    usersController.logout
+);
+
 module.exports = router;

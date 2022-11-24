@@ -66,6 +66,15 @@ const usersController = {
     profile: (req, res) => {
         let profileuser = req.session.user;
         res.render('users/profile', {profile: profileuser})
+    },
+
+    logout: (req,res) => {
+        req.session.destroy((err) => {
+            if(err) {
+                return console.log(err);
+            }
+            res.redirect('/');
+        });
     }
 
 };
