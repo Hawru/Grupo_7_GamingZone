@@ -36,6 +36,7 @@ const productsController = {
         try {
 
             let name = (req.body.title).toLowerCase().replace(/\s/g, '');
+            let releaseDate = moment().format(); 
 
             let product = await models.products.create({
                 name: name,
@@ -43,6 +44,7 @@ const productsController = {
                 description: req.body.description,
                 price: parseInt(req.body.price),
                 discount: parseInt(req.body.discount),
+                release_date : releaseDate
             });
 
             // si se envia una imagen la agregamos
