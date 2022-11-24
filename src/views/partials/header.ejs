@@ -13,7 +13,9 @@
           <nav class="main-menu d-none d-lg-block">
             <ul class="d-flex justify-content-end list-unstyled">
               <li><a href="/products/list">TIENDA</a></li>
-              <li><a href="/products/create">VENDER</a></li>
+              <% if (user) { %>
+              <li><a href="/products/create">CARGAR JUEGO</a></li>
+              <% } %>
               <!-- <li><a href="/users/login">Log In</a></li> -->
               <li><a href="#"><i class="fa-solid fa-heart"></i></a></li>
               <li><a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
