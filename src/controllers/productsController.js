@@ -49,7 +49,7 @@ const productsController = {
             if (req.file) {
                 let image = await models.product_images.create({
                     name: name,
-                    path: req.file.filename,
+                    path: "products/" + req.file.filename,
                     product_id: product.dataValues.id
                 });
 

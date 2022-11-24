@@ -17,7 +17,7 @@ const usersController = {
                 username: req.body.username,
                 email: req.body.email,
                 password: passwordHash,
-                profile_image_path: profile_image
+                profile_path: profile_image
             };
 
             models.initModels().then(models => {

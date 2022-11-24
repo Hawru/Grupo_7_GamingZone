@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       unique: "email_UNIQUE"
     },
-    profile_image_path: {
+    profile_path: {
       type: DataTypes.STRING(255),
       allowNull: true,
     },
