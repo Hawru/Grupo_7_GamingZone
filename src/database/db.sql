@@ -36,7 +36,8 @@ CREATE TABLE `products` (
   `description` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `price` decimal(10,0) NOT NULL,
   `discount` decimal(10,0) NOT NULL,
-  `primary_image_id` int(10) UNSIGNED DEFAULT NULL
+  `primary_image_id` int(10) UNSIGNED DEFAULT NULL,
+  `release_date` DATETIME NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `product_comments` (

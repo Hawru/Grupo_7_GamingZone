@@ -31,6 +31,10 @@ module.exports = function(sequelize, DataTypes) {
     primary_image_id: {
       type: DataTypes.INTEGER.UNSIGNED,
       allowNull: true
+    },
+    release_date: {
+      type: DataTypes.DATE,
+      allowNull: false
     }
   }, {
     sequelize,

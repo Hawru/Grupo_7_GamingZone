@@ -104,16 +104,6 @@ function initModels(sequelize) {
     foreignKey: "product_id"
   });
 
-  product_version.belongsTo(products, {
-    as: "product",
-    foreignKey: "product_id"
-  });
-
-  products.hasMany(product_version, {
-    as: "product_versions",
-    foreignKey: "product_id"
-  });
-
   sales.belongsTo(products, {
     as: "product",
     foreignKey: "product_id"
@@ -184,16 +174,17 @@ function initModels(sequelize) {
     foreignKey: "user_id"
   });
 
-  product_version.belongsTo(version_types, {
-    as: "version",
-    foreignKey: "version_id"
-  });
-
-  version_types.hasMany(product_version, {
+  products.belongsToMany(version_types, {
     as: "product_versions",
-    foreignKey: "version_id"
+    through: "product_version",
+    foreignKey: "product_id",
   });
-
+/*
+  version_types.belongsToMany(products, {
+    as: "version_products",
+    through: "product_version"
+  });
+*/
   return {
     invoice_details,
     invoices,
