@@ -10,7 +10,7 @@
         <%
         if (topSales.length) {
         %>
-        <section id="main-slider" class="rounded my-3 d-flex align-items-end align-items-md-center px-4 px-md-5 py-5" style="background-image:'<%=topSales[0].primary_image_src %>';">
+        <section id="main-slider" class="rounded my-3 d-flex align-items-end align-items-md-center px-4 px-md-5 py-5" style="background-image:url('/images/<%=topSales[0].primary_image_src %>');">
             <div class="row justify-content-between align-items-center">
               <div class="col-lg-4">
                 <%
@@ -23,7 +23,11 @@
                 <h1><%=topSales[0].title%></h1>
                 <p><%=topSales[0].description%></p>
                 <div class="d-flex align-items-center">
-                  <span class="fs-3 me-3"><%=topSales[0].discount ? topSales[0].pretty_price_d : topSales[0].pretty_price%>USD</span>
+                  <% if (topSales[0].discount > 0) { %>
+                    <span class="fs-3 me-3"><s class="text-muted"><%=topSales[0].price%>USD</s> <%= (topSales[0].price / 100) * (100 - topSales[0].discount) %>USD</span>
+                    <%} else {%>
+                    <span class="fs-3 me-3"><%= topSales[i].price %> USD</span>
+                    <%}%>
                   <a href="/products/<%=topSales[0].id%>" class="btn btn-lg btn-primary border-0" role="button"><i class="fa-solid fa-cart-shopping"></i> COMPRAR</a>
                 </div>
               </div>
@@ -64,10 +68,10 @@
                 <article class="col-md-4 mb-3">
                     <div class="image-container position-relative">
                         <img src="/images/<%=offers[i].primary_image_src%>" class="rounded img-fluid" alt="...">
-                        <span class="position-absolute bottom-0 start-0 ms-3 mb-3 badge bg-primary fs-5">-<%=offers[i].pretty_discount%></span>
+                        <span class="position-absolute bottom-0 start-0 ms-3 mb-3 badge bg-primary fs-5">-<%=offers[i].discount%>%</span>
                     </div>
                     <h4><a href="/products/<%=offers[i].id%>" class="text-decoration-none text-light"><%=offers[i].title%></a></h4>
-                    <p><s class="text-muted"><%=offers[i].pretty_price%>USD</s> <%=offers[i].pretty_price_d%>USD</p>
+                    <p><s class="text-muted"><%=offers[i].price%>USD</s> <%= (offers[i].price / 100) * (100 - offers[i].discount) %>USD</p>
                 </article>
                 <%
                     }
