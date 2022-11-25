@@ -34,10 +34,13 @@ const productsController = {
         let models = await initModels();
 
         try {
-
+            /* Informacion enviada por el usuario */
+            let requirements = [req.body.placa, req.body.procesador, req.body.ram, req.body.almacenamiento];
+            let plataforms = req.body.plataforms
             let name = (req.body.title).toLowerCase().replace(/\s/g, '');
             let releaseDate = moment().format(); 
 
+            /* Creacion del producto */
             let product = await models.products.create({
                 name: name,
                 title: req.body.title,
@@ -47,7 +50,7 @@ const productsController = {
                 release_date : releaseDate
             });
 
-            // si se envia una imagen la agregamos
+            // Si se envia una imagen la agregamos
             if (req.file) {
                 let image = await models.product_images.create({
                     name: name,
@@ -60,8 +63,29 @@ const productsController = {
                 });
             }
 
-            await productService.createDefaultRequirement(product.dataValues.id);
+            /* Creacion de los requerimientos*/
+            let makeRequirement = await productService.createDefaultRequirement(product.dataValues.id);
+            for (const [i, v] of makeRequirement.entries()) {
+                v.value = requirements[i] || 0
+            }
+            await models.product_requirement.bulkCreate(makeRequirement);
 
+            /* Creacion de las plataformas */
+            let makePlataforms = []
+            if (typeof plataforms == 'object') {
+                plataforms = plataforms.map(b => parseInt(b));
+                for (const i of plataforms) { 
+                    makePlataforms.push({product_id: product.dataValues.id, plataform_type_id: i})
+                }
+            } else{
+                plataforms = parseInt(plataforms)
+                makePlataforms.push({product_id: product.dataValues.id, plataform_type_id: plataforms})
+            }
+            await models.product_plataform.bulkCreate(makePlataforms);
+
+            /* Creacion de los scores por default */
+            await productService.createDefaultScores(product.dataValues.id);
+            
             // confirmamos los cambios
             await t.commit();
         } catch (e) {

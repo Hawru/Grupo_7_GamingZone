@@ -22,6 +22,10 @@ module.exports = function(sequelize, DataTypes) {
         model: 'score_types',
         key: 'id'
       }
+    },
+    value: {
+      type: DataTypes.TINYINT.UNSIGNED,
+      allowNull: false
     }
   }, {
     sequelize,

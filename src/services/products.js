@@ -20,7 +20,24 @@ module.exports = {
             }
         });
 
-        models.product_requirement.bulkCreate(productRequirement);
+        return productRequirement
+        //models.product_requirement.bulkCreate(productRequirement);
+    },
+
+    async createDefaultScores(productId) {
+        let models = await initModels();
+
+        let scoreTypes = await models.product_score.findAll();
+
+        let productScore = scoreTypes.map(sco => {
+            return {
+                product_id: productId,
+                score_type_id: sco.dataValues.id,
+                value: 0,
+            }
+        });
+
+        await models.product_score.bulkCreate(productScore);
     },
 
     async getResume(productId) {
