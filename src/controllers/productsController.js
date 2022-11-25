@@ -13,7 +13,7 @@ const productsController = {
         let models = await initModels();
 
         try {
-            let product = await models.products.findByPk(req.params.id);
+            let product = await productService.getResume(req.params.id);
 
             res.render('products/detailProduct', {
                 game: product,
@@ -86,80 +86,23 @@ const productsController = {
             /* Creacion de los scores por default */
             await productService.createDefaultScores(product.dataValues.id);
             
+            /* Creacion version por default(Standard)  Hasta cambiar la funcionalidad*/
+            /*
+            let version = {
+                product_id: product.dataValues.id,
+                version_id: 1,
+            }
+            await models.product_version.create(version)
+            */
             // confirmamos los cambios
             await t.commit();
+            res.redirect('../home')
         } catch (e) {
             // si algo fallo borramos los cambios de la DB
             await t.rollback();
             throw e;
         }
 
-        /*let images = [];
-        let primary_image_id = null;
-
-        if (req.file) {
-            let time = new Date;
-            let id = time.getTime();
-
-            images.push({
-                id: id,
-                src: 'products/' + req.file.filename,
-            });
-
-            primary_image_id = id;
-        }
-
-        let requirements = [];
-
-        requirements.push({
-            id: 1,
-            value: req.body.placa,
-        });
-
-        requirements.push({
-            id: 2,
-            value: req.body.procesador,
-        });
-
-        requirements.push({
-            id: 3,
-            value: req.body.ram,
-        });
-
-        requirements.push({
-            id: 4,
-            value: req.body.almacenamiento,
-        });
-
-        let plataforms = req.body.plataforms;
-
-        if (typeof plataforms != "object") {
-            plataforms = plataforms.split("");
-        }
-
-        plataforms = plataforms.map(b => parseInt(b));
-
-        let release_date = moment().format('YYYY-MM-DD');
-
-        let versions = [1, 2];
-
-        GameListModel.create({
-            title: req.body.title,
-            description: req.body.description,
-            price: req.body.price,
-            price_d: req.body.price_d || 0,
-            discount: req.body.discount || 0,
-            versions: versions,
-            release_date: release_date,
-            primary_image_id: primary_image_id,
-            requirements: requirements,
-            scores: [],
-            plataforms: plataforms,
-            images: images,
-        }, (list) => {
-            res.render('products/successProduct');
-        });
-        */
     },
     // Form de actualizar producto
     actualizarProducto: (req, res) => {

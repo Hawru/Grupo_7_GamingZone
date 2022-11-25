@@ -1,8 +1,16 @@
 const GameListModel = require('../database/models/gameListModel');
+let {
+    initModels,
+    sequelize,
+} = require('../database/models1/index.js');
+
+let productService = require('../services/products.js');
 
 const mainController = {
-    home: (req, res) => {
-        let games = GameListModel.getAll().map(game => GameListModel.getResume(game.id));
+    home: async (req, res) => {
+
+
+        let games = await productService.getAll();
 
         let news = games.filter(game => game.is_new);
 

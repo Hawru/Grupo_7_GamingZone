@@ -179,12 +179,12 @@ function initModels(sequelize) {
     through: "product_version",
     foreignKey: "product_id",
   });
-/*
+
   version_types.belongsToMany(products, {
     as: "version_products",
     through: "product_version"
   });
-*/
+  
   return {
     invoice_details,
     invoices,
