@@ -12,6 +12,12 @@ const sequelize = new Sequelize(configDb.database, configDb.username, configDb.p
   dialect: configDb.dialect
 });
 
+sequelize.authenticate().then(() => {
+  console.log('Connection to database has been established successfully.');
+}).catch(err => {
+  console.error('Unable to connect to database:', err);
+});
+
 // exportamos una funcion que retorna promesa para poder tomar la instancia limpia desde donde lo llamemos
 function initModelsPromise() {
   return new Promise((resolve, reject) => {
