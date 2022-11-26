@@ -4,7 +4,7 @@ let initModels = require('./init-models.js');
 
 // traemos los datos dependiendo el entorno que seleccionemos
 let configDb = configs[configs.environment];
-
+console.log(configDb)
 // iniciamos la conexión con la base de datos
 const sequelize = new Sequelize(configDb.database, configDb.username, configDb.password, {
   host: configDb.host,
