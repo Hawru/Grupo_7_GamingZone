@@ -10,7 +10,6 @@ let productService = require('../services/products.js');
 
 const productsController = {
     verProducto: async (req, res) => {
-        let models = await initModels();
 
         try {
             let product = await productService.getResume(req.params.id);
@@ -187,10 +186,9 @@ const productsController = {
         }
     },
     listaProducto: async (req, res) => {
-        let models = await initModels();
 
         try {
-            let products = await models.products.findAll();
+            let products = await productService.getAll();
 
             res.render('products/listProduct', {
                 game: products,
