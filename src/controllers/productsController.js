@@ -187,15 +187,11 @@ const productsController = {
         }
     },
     listaProducto: async (req, res) => {
-        let models = await initModels();
-
         try {
-            let products = await models.products.findAll();
-
+            let products = await productService.getAll();
             res.render('products/listProduct', {
                 game: products,
             });
-
         } catch(e) {
             res.render('404');
         };

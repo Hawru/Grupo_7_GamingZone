@@ -13,7 +13,7 @@
             <a href="/products/<%= game[i].id  %> " class="col-md-4" style="text-decoration: none; color: white" >
             <article class="col-md-12"> 
               <div class="image-container position-relative mb-3">
-                <img src="/images/<%= game[i].primary_image_src %>" class="rounded img-fluid" alt="...">
+                <img src="/images/<%=game[i].primary_image_src%>" class="rounded img-fluid" alt="...">
                 <% if (game[i].discount > 0) { %>
                   <span class="position-absolute bottom-0 start-0 ms-3 mb-3 badge bg-primary fs-5">-<%= game[i].discount%>%</span>
                 <%}%>
