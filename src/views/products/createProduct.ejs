@@ -6,34 +6,34 @@
       <main id="bg-create-product" class="d-flex align-items-center p-4">
         <div class="container">
           <div class="row justify-content-center py-3">
-            <form method="POST" class="col-lg-6 rounded-4 p-4 shadow bg-dark" id="create-form" enctype="multipart/form-data">
+            <form method="POST" action="/backend" class="col-lg-6 rounded-4 p-4 shadow bg-dark" id="create-form" enctype="multipart/form-data">
               <h2 class="mt-0 mb-4 text-center">Crear producto</h2>
               <h4>Información General</h4>
               <hr>  
               <div class="input-group mb-3">
-                <input type="text" class="form-control" name="title" placeholder="Nombre de producto" required>
+                <input type="text" class="form-control" name="title" id="title" placeholder="Nombre de producto" required>
               </div>
               <div class="input-group mb-3">
-                <textarea class="form-control" name="description" placeholder="Descripción" rows="3" required></textarea>
+                <textarea class="form-control" name="description" id="description" placeholder="Descripción" rows="3" required></textarea>
               </div>
               <div class="row">
                 <div class="col-6 mb-3">
-                  <input type="text" class="form-control" name="price" placeholder="Precio" required>
+                  <input type="text" class="form-control" name="price" id="price" placeholder="Precio" required>
                 </div>
                 <div class="col-6 mb-3">
-                  <input type="text" class="form-control" name="discount" placeholder="Descuento" required>
+                  <input type="text" class="form-control" name="discount" id="discount" placeholder="Descuento" required>
                 </div>             
               </div>
               <div class="mb-3">               
                 <label for="primary_image" class="form-label">Imagen de portada</label>
-                <input class="form-control" name="primary_image" type="file" id="formFile"></input>
+                <input class="form-control" name="primary_image" id="primary_image" type="file" id="formFile"></input>
               </div>
                 <h4>Requerimientos</h4>
                 <hr>             
               <div class="row">
                 <div class="col-md-6 mb-3">
                   <label for="placa" class="form-label">Placa de Video</label>
-                  <select class="form-select" name="placa" required>
+                  <select class="form-select" name="placa" id="placa" required>
                     <option value="">Selecciones un elemento</option>
                     <option value="NVIDIA Geforce Gtx 1080ti">NVIDIA Geforce Gtx 1080ti</option>
                     <option value="NVIDIA Geforce Gtx 2080ti">NVIDIA Geforce Gtx 2080ti</option>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="col-md-6 mb-3">
                   <label for="procesador" class="form-label">Procesador</label>
-                  <select class="form-select" name="procesador" required>
+                  <select class="form-select" name="procesador" id="procesador" required>
                     <option value="">Selecciones un elemento</option>
                     <option value="Intel Core I3">Intel Core I3</option>
                     <option value="Intel Core I5">Intel Core I5</option>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="col-md-6 mb-3">
                   <label for="ram" class="form-label">Memoria</label>
-                  <select class="form-select" name="ram">
+                  <select class="form-select" name="ram" id="ram" required>
                     <option value="">Selecciones un elemento</option>
                     <option value="8GB RAM">8GB RAM</option>
                     <option value="12GB RAM">12GB RAM</option>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="col-md-6 mb-3">
                   <label for="almacenamiento" class="form-label">Almacenamiento</label>
-                  <select class="form-select" name="almacenamiento" required>
+                  <select class="form-select" name="almacenamiento" id="almacenamiento" required>
                     <option value="">Selecciones un elemento</option>
                     <option value="10 GB">10 GB </option>
                     <option value="20 GB">20 GB</option>

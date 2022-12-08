@@ -6,13 +6,13 @@
     <main id="bg-login" class="d-flex align-items-center p-4">
       <div class="container">
         <div class="row justify-content-center text-center">
-          <form method="POST" class="col-md-5 col-lg-4 rounded-4 p-4 shadow bg-dark" id="login-form">
+          <form method="POST" action="/backend" class="col-md-5 col-lg-4 rounded-4 p-4 shadow bg-dark" id="login-form">
             <h2 class="mt-0 mb-4">Iniciar sesión</h2>
             <div class="input-group mb-3">
-              <input type="text" class="form-control" name="usernamelog" placeholder="Nombre de usuario" required>
+              <input type="text" class="form-control" name="usernamelog" id="usernamelog" placeholder="Nombre de usuario" required>
             </div>
             <div class="input-group mb-3">
-              <input type="password" class="form-control" name="passwordlog" placeholder="Contraseña" required>
+              <input type="password" class="form-control" name="passwordlog" id="passwordlog" placeholder="Contraseña" required>
             </div>
             <% if (locals.msg) { %>
               <p class="feedback d-block"><%= msg %></p>
