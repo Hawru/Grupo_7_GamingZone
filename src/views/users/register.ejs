@@ -6,7 +6,7 @@
     <main id="bg-register" class="d-flex align-items-center p-4">
       <div class="container">
         <div class="row justify-content-center">
-          <form method="POST" action="/backend" class="col-md-5 col-lg-4 rounded-3 p-4 shadow bg-dark" id="register-form" enctype="multipart/form-data">
+          <form method="POST" class="col-md-5 col-lg-4 rounded-3 p-4 shadow bg-dark" id="register-form" enctype="multipart/form-data">
             <h2 class="mt-0 mb-4 text-center">Registrate</h2>
             <% if (locals.errors) {
               errors.forEach(error => { %>
@@ -51,6 +51,7 @@
       </div>
     </main>
     <%- include('../partials/footer') %>
+    <script src="/js/validateRegister.js"></script>
     <%- include('../partials/scripts') %>
   </body>
 </html>

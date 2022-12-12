@@ -6,7 +6,7 @@
       <main id="bg-create-product" class="d-flex align-items-center p-4">
         <div class="container">
           <div class="row justify-content-center py-3">
-            <form method="POST" action="/backend" class="col-lg-6 rounded-4 p-4 shadow bg-dark" id="create-form" enctype="multipart/form-data">
+            <form method="POST" class="col-lg-6 rounded-4 p-4 shadow bg-dark" id="create-form" enctype="multipart/form-data">
               <h2 class="mt-0 mb-4 text-center">Crear producto</h2>
               <h4>Información General</h4>
               <hr>  
@@ -84,6 +84,7 @@
         </div>
       </main>
       <%- include('../partials/footer') %>
+      <script src="/js/validateCUProduct.js"></script>
       <%- include('../partials/scripts') %>
     </body>
   </html>
