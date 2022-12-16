@@ -7,7 +7,7 @@
       <div class="container">
         <div class="row">
           <div class="col">
-              <h1 class="fs-2"><span class="badge bg-primary"><%=game.score_avg%> <i class="fa-solid fa-star"></i></span> <%=game.title%></h1>
+              <h1 class="fs-2" id="gameTitle"><span class="badge bg-primary"><%=game.score_avg%> <i class="fa-solid fa-star"></i></span> <%=game.title%></h1>
           </div>
           <div class="col">
             <% if (game.plataforms) { %>
@@ -24,7 +24,7 @@
             <div id="product-slider">
               <div class="row mb-3">
                 <div class="col-12 position-relative">
-                  <img src="/images/<%=game.primary_image_src%>" class="img-fluid rounded">
+                  <img src="/images/<%=game.primary_image_src%>" class="img-fluid rounded" id="primaryImage">
                   <div class="play-button position-absolute shadow-lg d-flex align-items-center justify-content-center"><i class="fa-solid fa-play fs-2"></i></div>
                 </div>
               </div>
@@ -49,14 +49,14 @@
               <% } %>
               <p class="fw-bold fs-4 my-4">
                 <% if(game.discount) { %>
-                <span class="text-muted fw-normal text-decoration-line-through"><%=game.price%> USD</span>
-                <span><%= (game.price / 100) * (100 - game.discount) %> USD</span>
+                <span class="text-muted fw-normal text-decoration-line-through"><span id="price"><%=game.price%></span> USD</span>
+                <span id="priceWithDiscount"><%= (game.price / 100) * (100 - game.discount) %></span> USD
                 <%} else {%>
-                <span><%= game.price %> USD</span>
+                  <span id="price"><%= game.price %></span> USD
                 <% } %>
               </p>
               <div class="d-grid gap-2">
-                <button class="btn btn-lg btn-primary" type="button"><i class="fa-solid fa-cart-plus"></i> AÑADIR AL CARRITO</button>
+                <button class="btn btn-lg btn-primary" id="addtocart" type="button"><i class="fa-solid fa-cart-plus"></i> AÑADIR AL CARRITO</button>
                 <button class="btn btn-lg btn-outline-light" type="button"><i class="fa-solid fa-heart"></i> LISTA DE DESEOS</button>
               </div>
             </div>
@@ -118,5 +118,6 @@
     </main>
     <%- include('../partials/footer') %>
     <%- include('../partials/scripts') %>
+    <script src="/js/addtocart.js"></script>
   </body>
 </html>
