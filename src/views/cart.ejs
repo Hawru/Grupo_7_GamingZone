@@ -7,43 +7,8 @@
         <div class="container">
             <h2 class="mb-4">Carrito</h2>
             <div class="row">
-                <div class="col-12 col-xl-8 col-xxl-9">
-                    <div class="cart-item mb-3 bg-primary-dark rounded p-3">
-                            <div class="row">
-                                <div class="col-12 col-md-8 d-flex align-items-center cart-item-details">
-                                    <img src="/images/spiderman.jpeg" class="rounded d-inline-block me-3 cart-item-image">
-                                    <div class="cart-item-title">
-                                      <h4>Marvel's Spider-Man Remasterizado</h4>
-                                      <small class="text-muted">Version Deluxe <i class="fa-solid fa-angle-down"></i></small>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-4 cart-item-price d-flex align-items-center justify-content-between justify-content-md-end mt-3 mt-md-0">
-                                        <div class="cart-item-price-detail d-flex flex-row flex-md-column align-items-center text-start text-md-end">
-                                            <small class="text-muted text-decoration-line-through me-2 me-md-0">69,99 USD</small>
-                                            <p class="fw-bold fs-4 mb-0">49,99 USD</p>
-                                        </div>
-                                        <i class="fa-solid fa-trash-can fa-2xl fs-2 mx-0 mx-md-4"></i>
-                                </div>
-                            </div>
-                    </div>
-                    <div class="cart-item mb-3 bg-primary-dark rounded p-3">
-                            <div class="row">
-                                <div class="col-12 col-md-8 d-flex align-items-center cart-item-details">
-                                    <img src="/images/fifa23.jpeg" class="rounded d-inline-block me-3 cart-item-image">
-                                    <div class="cart-item-title">
-                                      <h4>Fifa 2023</h4>
-                                      <small class="text-muted">Version Standard <i class="fa-solid fa-angle-down"></i></small>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-4 cart-item-price d-flex align-items-center justify-content-between justify-content-md-end mt-3 mt-md-0">
-                                        <div class="cart-item-price-detail d-flex flex-row flex-md-column align-items-center text-start text-md-end">
-                                            <small class="text-muted text-decoration-line-through me-2 me-md-0">69,99 USD</small>
-                                            <p class="fw-bold fs-4 mb-0">49,99 USD</p>
-                                        </div>
-                                        <i class="fa-solid fa-trash-can fa-2xl fs-2 mx-0 mx-md-4"></i>
-                                </div>
-                            </div>
-                    </div>
+                <div class="col-12 col-xl-8 col-xxl-9" id="cart-items">
+                  <div id="emptyCart"></div>
                     <div class="row d-flex align-items-center g-3 mt-2 mb-5 text-center text-md-start justify-content-center justify-content-md-start">
                       <div class="col-12 col-md-auto">
                         <label for="cupon" class="">Cupón de Descuento</label>
@@ -60,17 +25,17 @@
                     <div id="cart-resume" class="bg-primary-dark p-4 rounded mb-5">
                             <div class="d-flex justify-content-between">
                                 <p>Subtotal</p>
-                                <p class="text-muted">139,99 USD</p>
+                                <p class="text-muted"><span id="cartSubtotal"></span> USD</p>
                             </div>
                             <hr>
                             <div class="d-flex justify-content-between">
                                 <p>Descuento</p>
-                                <p class="text-muted">39,99 USD</p>
+                                <p class="text-muted">-<span id="cartDiscount"></span> USD</p>
                             </div>
                             <hr>
                             <div class="d-flex justify-content-between cart-total">
                                 <p>Total</p>
-                                <p>100,00 USD</p>
+                                <p><span id="cartTotal"></span> USD</p>
                             </div>
                             <div class="d-grid gap-2 mt-4">
                               <button class="btn btn-lg btn-primary fw-bold" type="button">Pagar</button>
@@ -83,5 +48,51 @@
     </main>
     <%- include('./partials/footer') %>
     <%- include('./partials/scripts') %>
+<script>
+  window.addEventListener("load", function(){
+    let cart = localStorage.getItem("cart");
+  if(cart == null){
+      document.getElementById('emptyCart').innerHTML = "<h4>No hay productos en el carrito</h4>";
+  }else{
+      let totalPrice = [];
+      let originalPrice = [];
+    for(let i = 0; i <= cart.length; i++){
+      let games = localStorage.getItem("cart");
+      let games2 = JSON.parse(games);
+      totalPrice.push(parseInt(games2[i].discount, 10));
+      originalPrice.push(parseInt(games2[i].price, 10));
+      let cartItemHtml =
+      '<div class="cart-item mb-3 bg-primary-dark rounded p-3">' +
+          '<div class="row">' +
+            '<div class="col-12 col-md-8 d-flex align-items-center cart-item-details">' +  
+              '<img src="' + games2[i].image + '" class="rounded d-inline-block me-3 cart-item-image">' +
+                '<div class="cart-item-title">' + 
+                  '<h4>' + games2[i].name + '</h4>' +
+                  '<small class="text-muted">Version Standard</small>' +
+                '</div>' +
+            '</div>' +
+            '<div class="col-12 col-md-4 cart-item-price d-flex align-items-center justify-content-between justify-content-md-end mt-3 mt-md-0">' +
+              '<div class="cart-item-price-detail d-flex flex-row flex-md-column align-items-center text-start text-md-end">' +
+                '<small class="text-muted text-decoration-line-through me-2 me-md-0"><span class="price">' + games2[i].price + '</span> USD</small>' +
+                '<p class="fw-bold fs-4 mb-0"><span class="discount">' + games2[i].discount + '</span> USD</p>' +
+              '</div>' + 
+              '<i class="fa-solid fa-trash-can fa-2xl fs-2 mx-0 mx-md-4"></i>' +
+            '</div>' + 
+          '</div>' +
+        '</div>';
+      document.getElementById('cart-items').insertAdjacentHTML("afterbegin", cartItemHtml);
+      // Calculo del total
+      let total = totalPrice.reduce((acumulador, valorActual) => acumulador + valorActual, 0);
+      document.getElementById('cartTotal').innerHTML = total;
+      // Calculo del subtotal
+      let subtotal = originalPrice.reduce((acumulador, valorActual) => acumulador + valorActual, 0);
+      document.getElementById('cartSubtotal').innerHTML = subtotal;
+      // Calculo de la suma descontada
+      let cartDiscount = subtotal - total;
+      document.getElementById('cartDiscount').innerHTML = cartDiscount;
+    }
+  }
+});
+</script>
   </body>
 </html>
