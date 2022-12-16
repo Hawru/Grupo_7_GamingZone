@@ -25,7 +25,7 @@ window.addEventListener("load", function(){
                 '<small class="text-muted text-decoration-line-through me-2 me-md-0"><span class="price">' + games2[i].price + '</span> USD</small>' +
                 '<p class="fw-bold fs-4 mb-0"><span class="discount">' + games2[i].discount + '</span> USD</p>' +
               '</div>' + 
-              '<i class="fa-solid fa-trash-can fa-2xl fs-2 mx-0 mx-md-4"></i>' +
+              '<i class="fa-solid fa-trash-can fa-2xl fs-2 mx-0 mx-md-4 deleteItem" id="'+ i +'"></i>' +
             '</div>' + 
           '</div>' +
         '</div>';
@@ -39,6 +39,6 @@ window.addEventListener("load", function(){
       // Calculo de la suma descontada
       let cartDiscount = subtotal - total;
       document.getElementById('cartDiscount').innerHTML = cartDiscount;
-    }
-  }
+    };
+  };
 });
