@@ -65,8 +65,6 @@ module.exports = {
         if (!product) {
             return null;
         }
-
-        console.log(product.dataValues)
         
         let primary_image = product.product_images.filter(img => img.id == product.primary_image_id)[0] || null;
 
