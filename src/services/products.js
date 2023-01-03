@@ -43,7 +43,13 @@ module.exports = {
     async getAll() {
         let models = await initModels();
 
-        let tmp = await models.products.findAll();
+        let tmp = await models.products.findAll({
+            where: {
+                deleted_at: {
+                    [Op.eq]: null
+                }
+            }
+        });
         
         let games = []
 
