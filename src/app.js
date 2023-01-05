@@ -6,6 +6,10 @@ const app = express();
 const methodOverride = require('method-override');
 const PORT = process.env.PORT || 3000
 const session = require('express-session');
+const CORS = require('cors');
+
+app.use(CORS());
+
 //Carpeta Public
 app.use(express.static('./public'));
 
