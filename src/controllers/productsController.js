@@ -174,13 +174,19 @@ const productsController = {
         });
     },
     // Acción de eliminar producto
-    eliminarProducto: (req, res) => {
-        let game = GameListModel.findById(req.params.id);
+    eliminarProducto: async (req, res) => {
+        let models = await initModels();
+        let game = await models.products.findByPk(req.params.id);
+        console.log(game)
 
         if (game) {
-            GameListModel.delete(req.params.id, () => {
-                res.render('products/deleteProduct');
-            });
+            try {
+                await game.update({deleted_at: moment().format()});
+                await game.save();
+                res.redirect('/');
+            } catch(e){
+                res.render('404')
+            }
         } else {
             res.render('404');
         }

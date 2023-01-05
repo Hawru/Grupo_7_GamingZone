@@ -23,7 +23,7 @@ router.get('/list', productsController.listaProducto)
 router.get('/create', authLogMiddleWare, productsController.crearProducto)
 router.post('/create', uploadFile.single('primary_image'), productsController.almacenarProducto)
 router.get('/:id', productsController.verProducto);
-router.delete('/:id', productsController.eliminarProducto)
+router.delete('/:id/delete', productsController.eliminarProducto)
 router.get('/:id/update', authLogMiddleWare, productsController.actualizarProducto)
 router.put('/:id/update', uploadFile.single('primary_image'), productsController.guardarProducto)
 
