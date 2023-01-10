@@ -309,3 +309,20 @@ body.products #product-slider .mini-imgs img {
 @media (min-width: 1400px) {
 
 }
+
+.container-game {
+	max-height: 400px;
+}
+
+.container-game img {
+	width: auto;
+	height: 100%;
+	display: block;
+	margin: auto;
+}
+
+#ofertas .image-container img, #novedades a > img, #proximamente a > img, #tabs a > img {
+	max-height: 150px;
+	display: block;
+	margin: auto;
+}

@@ -8,10 +8,15 @@ const PORT = process.env.PORT || 3000
 const session = require('express-session');
 const CORS = require('cors');
 
+// Agregamos el uso de CORS
 app.use(CORS());
 
 //Carpeta Public
 app.use(express.static('./public'));
+<<<<<<< HEAD
+=======
+
+>>>>>>> b2b175493b1fe2bad9f5b587fad18aed8d394b0e
 //Template engine
 app.set('views',  path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
