@@ -128,10 +128,10 @@ module.exports = {
         }
 
         let primary_image_src = primary_image.dataValues.path;
-        let isNew = moment(product.release_date).isAfter(moment().subtract(2, 'weeks')) && moment(product.release_date).isBefore(moment());
-        let comingSoon = moment(product.release_date).isAfter(moment());
+        let isNew = moment(product.dataValues.release_date).isAfter(moment().subtract(2, 'weeks')) && moment(product.dataValues.release_date).isBefore(moment());
+        let comingSoon = moment(product.dataValues.release_date).isAfter(moment());
         let scoreAvg = (product.product_scores.reduce((sum, score) => sum + score.value, 0) / product.product_scores.length) || 0;    
-        
+
         //let versions = product.product_versions.map(async v => {
             //return models.version_types.findByPk(v);
         //})
@@ -150,9 +150,9 @@ module.exports = {
             requirements: requirements,
             versions: versions,
             primary_image_src: primary_image_src,
-            isNew: isNew,
-            comingSoon: comingSoon,
-            scoreAvg: scoreAvg,
+            is_new: isNew,
+            coming_soon: comingSoon,
+            score_avg: scoreAvg,
         }
 
         return finalProduct

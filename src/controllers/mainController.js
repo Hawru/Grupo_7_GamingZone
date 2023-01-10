@@ -29,7 +29,7 @@ const mainController = {
                 }
             }
         });
-
+console.log(games);
         res.render('home', {
             games: games,
             news: news,
