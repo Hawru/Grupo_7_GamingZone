@@ -310,6 +310,10 @@ body.products #product-slider .mini-imgs img {
 
 }
 
+.container-game {
+	max-height: 400px;
+}
+
 .container-game img {
 	width: auto;
 	height: 100%;
