@@ -309,3 +309,10 @@ body.products #product-slider .mini-imgs img {
 @media (min-width: 1400px) {
 
 }
+
+.container-game img {
+	width: auto;
+	height: 100%;
+	display: block;
+	margin: auto;
+}
