@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 3000
 const session = require('express-session');
 const CORS = require('cors');
 
+// Agregamos el uso de CORS
 app.use(CORS());
 
 //Carpeta Public
