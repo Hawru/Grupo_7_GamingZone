@@ -13,7 +13,6 @@ const productsController = {
 
         try {
             let product = await productService.getResume(req.params.id);
-            console.log(product)
             res.render('products/detailProduct', {
                 game: product,
             });
@@ -175,7 +174,6 @@ const productsController = {
     eliminarProducto: async (req, res) => {
         let models = await initModels();
         let game = await models.products.findByPk(req.params.id);
-        console.log(game)
 
         if (game) {
             try {
