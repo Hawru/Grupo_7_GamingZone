@@ -13,7 +13,7 @@ const productsController = {
 
         try {
             let product = await productService.getResume(req.params.id);
-
+            console.log(product)
             res.render('products/detailProduct', {
                 game: product,
             });
@@ -104,9 +104,8 @@ const productsController = {
 
     },
     // Form de actualizar producto
-    actualizarProducto: (req, res) => {
-        let game = GameListModel.findById(req.params.id);
-
+    actualizarProducto: async (req, res) => {
+        let game = await productService.getResume(req.params.id);
         if (game) {
             res.render('products/updateProduct', {
                 game: game,
@@ -116,62 +115,61 @@ const productsController = {
         }
     },
     // Acción de actualizar producto
-    guardarProducto: (req, res) => {
-        let game = GameListModel.findById(req.params.id);
+    guardarProducto: async (req, res) => {
+        let models = await initModels(); 
+        let game = await productService.getResume(req.params.id);
 
-        if (req.file) {
-            let time = new Date;
-            let id = time.getTime();
-
-            game.images.push({
-                id: id,
-                src: 'products/' + req.file.filename,
-            });
-
-            game.primary_image_id = id;
+        let newRequirements = [req.body.placa, req.body.procesador, req.body.ram, req.body.almacenamiento];
+        let newPlataforms = req.body.plataforms;
+        
+        try{
+            if (req.file) {
+                let updateImage = await models.product_images.findOne({ where: { name: game.name, product_id: game.id}});
+                if (updateImage){
+                    await updateImage.update({ path: 'products/' + req.file.filename });
+                    await updateImage.save();
+                }
+            }
+            let newName = (req.body.title).toLowerCase().replace(/\s/g, '');
+            let newGame = {
+                    name: newName,
+                    title: req.body.title,
+                    description: req.body.description,
+                    price: parseInt(req.body.price),
+                    discount: parseInt(req.body.discount),
+            }
+    
+            let gameUpdate = await models.products.findByPk(game.id);
+            if(gameUpdate) {
+                await gameUpdate.update(newGame);
+                await gameUpdate.save()
+            }
+    
+            for (const [i, x] of newRequirements.entries()) {
+                let requirement = await models.product_requirement.findByPk(game.requirements[i].id)
+                if(requirement) {
+                    await requirement.update({ value: x})
+                    await requirement.save();
+                }
+            }
+            await models.product_plataform.destroy({ where: { product_id: game.id}});
+            let makeNewPlataforms = []
+            if (typeof newPlataforms == 'object') {
+                newPlataforms = newPlataforms.map(b => parseInt(b));
+                for (const i of newPlataforms) { 
+                    makeNewPlataforms.push({product_id: game.id, plataform_type_id: i})
+                }
+            } else{
+                newPlataforms = parseInt(newPlataforms)
+                makeNewPlataforms.push({product_id: game.id, plataform_type_id: newPlataforms})
+            }
+            await models.product_plataform.bulkCreate(makeNewPlataforms);
+            res.redirect('/')
+        } catch(e) {
+            res.render('404');
         }
+       
 
-        let requirements = [];
-
-        requirements.push({
-            id: 1,
-            value: req.body.placa,
-        });
-
-        requirements.push({
-            id: 2,
-            value: req.body.procesador,
-        });
-
-        requirements.push({
-            id: 3,
-            value: req.body.ram,
-        });
-
-        requirements.push({
-            id: 4,
-            value: req.body.almacenamiento,
-        });
-
-        game.requirements = requirements;
-
-        let plataforms = req.body.plataforms;
-
-        if (typeof plataforms != "object") {
-            plataforms = plataforms.split("");
-        }
-
-        game.plataforms = plataforms.map(b => parseInt(b));
-
-        game.title = req.body.title || game.title;
-        game.description = req.body.description || game.description;
-        game.price = req.body.price || game.price;
-        game.price_d = req.body.price_d || game.price_d;
-        game.discount = req.body.discount || game.discount;
-
-        GameListModel.update(req.params.id, game, (list) => {
-            res.render('products/successProduct');
-        });
     },
     // Acción de eliminar producto
     eliminarProducto: async (req, res) => {
@@ -192,7 +190,6 @@ const productsController = {
         }
     },
     listaProducto: async (req, res) => {
-
         try {
             let products = await productService.getAll();
 

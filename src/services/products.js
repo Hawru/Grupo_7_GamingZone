@@ -121,6 +121,7 @@ module.exports = {
         let requirements = [];
         for (const i of requirementsData) {
             let tmp = {
+                id: i.dataValues.id,
                 value: i.dataValues.value,
                 title: i.dataValues.requirement.dataValues.title,
             }

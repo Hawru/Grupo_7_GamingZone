@@ -12,7 +12,6 @@ app.use(CORS());
 
 //Carpeta Public
 app.use(express.static('./public'));
-app.use(cors());
 //Template engine
 app.set('views',  path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
