@@ -123,7 +123,7 @@ const productsController = {
         
         try{
             if (req.file) {
-                let updateImage = await models.product_images.findOne({ where: { name: game.name, product_id: game.id}});
+                let updateImage = await models.product_images.findOne({ where: { product_id: game.id}});
                 if (updateImage){
                     await updateImage.update({ path: 'products/' + req.file.filename });
                     await updateImage.save();
