@@ -320,3 +320,9 @@ body.products #product-slider .mini-imgs img {
 	display: block;
 	margin: auto;
 }
+
+#ofertas .image-container img, #novedades a > img, #proximamente a > img, #tabs a > img {
+	max-height: 150px;
+	display: block;
+	margin: auto;
+}
